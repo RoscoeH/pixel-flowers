@@ -3,35 +3,60 @@ import PropTypes from "prop-types"
 
 const SIZE = 128
 const RES = 20
-const DEFAULT_COLOR = "pink"
-const DEFAULT_COLOR_2 = "hotpink"
-const SHADOW_1 = "rgba(0, 0, 0, 0.1)"
 
-// const Tiny = () => <rect x={1} y={1} width={2} height={2} />
-// const Plain = () => <path d="m1,0 h2 v1 h1 v2 h-1 v1 h-2 v-1 h-1 v-2 h1 z" />
 const PETALS = {
-  clover: ({ color, color2 }) => (
+  clover: [
     <>
-      <g fill={color}>
-        <path d="m3,0 h2 v1 h1 v4 h-1 v1 h-1 v-1 h-2 v-1 h-1 v-2 h2 v-2 m4,6 h1 v1 h2 v1 h1 v2 h-2 v2 h-2 v-1 h-1 v-4 h1 z" />
-        <rect x={1} y={9} width={1} height={1} />
-        <rect x={10} y={2} width={1} height={1} />
-      </g>
-      <g fill={color2}>
-        <path d="m6,4  h1 v-2 h1 v-1 h2 v2 h2 v2 h-1 v1 h-4 v-1 h-1 v-1 m-1,2 v1 h1 v1 h-1 v2 h-1 v1 h-2 v-2 h-2 v-2 h1 v-1 z" />
-        <rect x={2} y={1} width={1} height={1} />
-        <rect x={9} y={10} width={1} height={1} />
-      </g>
-    </>
-  ),
+      <path d="m3,0 h2 v1 h1 v4 h-1 v1 h-1 v-1 h-2 v-1 h-1 v-2 h2 v-2 m4,6 h1 v1 h2 v1 h1 v2 h-2 v2 h-2 v-1 h-1 v-4 h1 z" />
+      <rect x={1} y={9} width={1} height={1} />
+      <rect x={10} y={2} width={1} height={1} />
+    </>,
+    <>
+      <path d="m6,4  h1 v-2 h1 v-1 h2 v2 h2 v2 h-1 v1 h-4 v-1 h-1 v-1 m-1,2 v1 h1 v1 h-1 v2 h-1 v1 h-2 v-2 h-2 v-2 h1 v-1 z" />
+      <rect x={2} y={1} width={1} height={1} />
+      <rect x={9} y={10} width={1} height={1} />
+    </>,
+  ],
+  daisy: [
+    <>
+      <path d="m0,4 h1 v-2 h2 v1 h1 v1 h1 v2 h-2 v-1 h-3 z" />
+      <path d="m6,3 h1 v-3 h1 v1 h2 v2 h-1 v1 h-1 v1 h-2 z" />
+      <path d="m7,6 h2 v1 h3 v1 h-1 v2 h-2 v-1 h-1 v-1 h-1 z" />
+      <path d="m4,7 h2 v2 h-1 v3 h-1 v-1 h-2 v-2 h1 v-1 h1 z" />
+    </>,
+    <>
+      <path d="m4,0 h1 v1 h1 v4 h-1 v-1 h-1 v-2 h-1 v-1 h1 z" />
+      <path d="m10,3 h1 v1 h1 v1 h-1 v1 h-4 v-1 h1 v-1 h2 z" />
+      <path d="m6,7 h1 v1 h1 v2 h1 v1 h-1 v1 h-1 v-1 h-1 z" />
+      <path d="m1,6 h4 v1 h-1 v1 h-2 v1 h-1 v-1 h-1 v-1 h1 z" />
+    </>,
+  ],
+  daffodil: [
+    <>
+      <path d="m3,0 h2 v1 h1 v4 h-2 v-1 h-1 z" />
+      <path d="m8,3 h4 v2 h-1 v1 h-4 v-2 h1 z" />
+      <path d="m1,6 h4 v2 h-1 v1 h-4 v-2 h1 z" />
+      <path d="m6,7 h2 v1 h1 v4 h-2 v-1 h-1 z" />
+    </>,
+    <>
+      <path d="m6,1 h1 v-1 h2 v3 h-1 v1 h-1 v1 h-1 z" />
+      <path d="m7,6 h4 v1 h1 v2 h-3 v-1 h-1 v-1 h-1 z" />
+      <path d="m5,7 h1 v4 h-1 v1 h-2 v-3 h1 v-1 h1 z" />
+      <path d="m0,3 h3 v1 h1 v1 h1 v1 h-4 v-1 h-1 z" />
+    </>,
+  ],
 }
 export const KINDS = Object.keys(PETALS)
 
-const Petals = ({
-  color = DEFAULT_COLOR,
-  color2 = DEFAULT_COLOR_2,
-  kind = "clover",
-}) => React.createElement(PETALS[kind] || PETALS[KINDS[0]], { color, color2 })
+const Petals = ({ color = "pink", color2 = "hotpink", kind = "clover" }) => {
+  const [primaryPetals, secondaryPetals] = PETALS[kind] || PETALS[KINDS[0]]
+  return (
+    <>
+      <g fill={color}>{primaryPetals}</g>
+      {secondaryPetals && <g fill={color2}>{secondaryPetals}</g>}
+    </>
+  )
+}
 
 Petals.propTypes = {
   /**
