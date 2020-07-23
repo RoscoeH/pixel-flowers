@@ -104,7 +104,12 @@ Pistil.propTypes = {
 }
 
 const PistilSvg = props => (
-  <svg width={SIZE} height={SIZE} viewBox={`0 0 ${RES} ${RES}`}>
+  <svg
+    width={SIZE}
+    height={SIZE}
+    viewBox={`0 0 ${RES} ${RES}`}
+    style={{ border: `1px solid #ddd`, marginRight: "8px" }}
+  >
     <g transform={`translate(${RES / 4}, ${RES / 4})`}>
       <Pistil {...props} />
     </g>
