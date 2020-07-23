@@ -99,9 +99,17 @@ const Pistil = ({ color = DEFAULT_COLOR, kind = "plain" }) => (
   <g fill={color}>{React.createElement(PISTILS[kind] || PISTILS[KINDS[0]])}</g>
 )
 Pistil.propTypes = {
+  /**
+   * The color of the pistil
+   */
   color: PropTypes.string,
+  /**
+   * The kind of pistil to display
+   */
   kind: PropTypes.oneOf(KINDS),
 }
+
+export default Pistil
 
 const PistilSvg = props => (
   <svg
@@ -116,14 +124,4 @@ const PistilSvg = props => (
   </svg>
 )
 
-export default Pistil
-
 export { PistilSvg }
-
-// Button.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   scale: PropTypes.oneOf(["small", "normal", "big"]),
-// }
-// Button.defaultProps = {
-//   scale: "normal",
-// }
