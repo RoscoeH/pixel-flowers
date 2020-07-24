@@ -117,6 +117,7 @@ const PistilSvg = props => (
     height={SIZE}
     viewBox={`0 0 ${RES} ${RES}`}
     style={{ border: `1px solid #ddd`, marginRight: "8px" }}
+    shapeRendering="crispEdges"
   >
     <g transform={`translate(${RES / 4}, ${RES / 4})`}>
       <Pistil {...props} />

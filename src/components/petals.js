@@ -45,6 +45,19 @@ const PETALS = {
       <path d="m0,3 h3 v1 h1 v1 h1 v1 h-4 v-1 h-1 z" />
     </>,
   ],
+  tulip: [
+    <>
+      <path d="m5,1 h1 v1 h1 v2 h1 v2 h-1 v-1 h-2 v1 h-1 v-2 h1 z" />c
+      <path d="m0,3 h2 v1 h1 v2 h1 v2 h1 v2 h-1 v-1 h-2 v-5 h-2 z" />
+      <path d="m5,7 h1 v1 h1 v-1 h1 v-1 h1 v-2 h1 v-1 h2 v1 h-2 v5 h-2 v1 h-2 v1 h-1 v-1 h1 v-2 h-1 z" />
+    </>,
+    <>
+      <path d="m1,4 h1 v5 h2 v1 h1 v1 h-1 v-1h-2 v-1 h-1 z" />
+      <path d="m4,2 h1 v2 h-1 v2 h1 v2 h1 v2 h-1 v-2 h-1 v-2 h-1 v-2 h1 z" />
+      <path d="m5,0 h1 v1 h1 v1 h1 v2 h1 v2 h-1 v1 h-1 v1 h-1 v-1 h1 v-1h1 v-2 h-1 v-2 h-1 v-1 h-1 z" />
+      <path d="m10,4 h1 v5 h-1 v1 h-2 v1 h-2 v-1 h2 v-1 h2 z" />
+    </>,
+  ],
 }
 export const KINDS = Object.keys(PETALS)
 
