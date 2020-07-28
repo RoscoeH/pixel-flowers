@@ -54,8 +54,15 @@ const PETALS = {
     <>
       <path d="m1,4 h1 v5 h2 v1 h1 v1 h-1 v-1h-2 v-1 h-1 z" />
       <path d="m4,2 h1 v2 h-1 v2 h1 v2 h1 v2 h-1 v-2 h-1 v-2 h-1 v-2 h1 z" />
-      <path d="m5,0 h1 v1 h1 v1 h1 v2 h1 v2 h-1 v1 h-1 v1 h-1 v-1 h1 v-1h1 v-2 h-1 v-2 h-1 v-1 h-1 z" />
+      <path d="m5,0 h1 v1 h1 v1 h1 v2 h1 v2 h-1 v1 h-1 v1 h-1 v-1 h1 v-1 h1 v-2 h-1 v-2 h-1 v-1 h-1 z" />
       <path d="m10,4 h1 v5 h-1 v1 h-2 v1 h-2 v-1 h2 v-1 h2 z" />
+    </>,
+  ],
+  bubble: [
+    <>
+      <path d="m4,0 h4 v1 h2 v1 h1 v2 h1 v4 h-1 v2 h-1 v1 h-2 v-1 h2 v-2 h1 v-4 h-1 v-2 h-2 v-1 h-4 z" />
+      <path d="m4,1 h-2 v1 h-1 v2 h-1 v4 h1 v2 h1 v1 h2 v1 h4 v-1 h-4 v-1 h-2 v-2 h-1 v-4 h1 v-2 h2 z" />
+      <path d="m8,3 h1 v1 h1 v2 h-1 v-2 h-1 z" />
     </>,
   ],
 }
