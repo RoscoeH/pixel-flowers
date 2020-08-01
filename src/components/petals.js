@@ -20,15 +20,15 @@ const Petals = ({ color = "pink", color2 = "hotpink", kind = "clover" }) => {
 
 Petals.propTypes = {
   /**
-   * The kind of pistil to display
+   * The kind of petals to display
    */
   kind: PropTypes.oneOf(KINDS),
   /**
-   * The primary color of the pistil
+   * The primary color of the petals
    */
   color: PropTypes.string,
   /**
-   * The secondary color of the pistil
+   * The secondary color of the petals
    */
   color2: PropTypes.string,
 }
