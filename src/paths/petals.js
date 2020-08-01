@@ -1,6 +1,6 @@
 import React from "react"
 
-export default {
+const PETALS = {
   clover: [
     <>
       <path d="m3,0 h2 v1 h1 v4 h-1 v1 h-1 v-1 h-2 v-1 h-1 v-2 h2 v-2 m4,6 h1 v1 h2 v1 h1 v2 h-2 v2 h-2 v-1 h-1 v-4 h1 z" />
@@ -287,3 +287,5 @@ export default {
     />,
   ],
 }
+export const KINDS = Object.keys(PETALS)
+export default PETALS

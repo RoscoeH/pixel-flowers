@@ -8,13 +8,18 @@ const RES = 17
 
 export const KINDS = Object.keys(STEMS)
 
-const Stem = ({ color = "darkgreen", color2 = "green", kind = "a" }) => {
+const Stem = ({
+  color = "green",
+  color2 = "lightgreen",
+  kind = "a",
+  ...props
+}) => {
   const [stem, leaves] = STEMS[kind] || STEMS[KINDS[0]]
   return (
-    <>
+    <g {...props}>
       <g fill={color}>{stem}</g>
       {leaves && <g fill={color2}>{leaves}</g>}
-    </>
+    </g>
   )
 }
 

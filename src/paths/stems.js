@@ -1,5 +1,6 @@
 import React from "react"
-export default {
+
+const STEMS = {
   a: [
     <path d="M3 0H2V4H3V13H4V4H3V0Z" />,
     <>
@@ -102,3 +103,6 @@ export default {
     <path d="M4 4H6V5H7V6H6H5V7H4V6V4ZM3 5H1V6H0V7H2V8H3V7V6V5Z" />,
   ],
 }
+
+export const KINDS = Object.keys(STEMS)
+export default STEMS

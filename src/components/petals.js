@@ -8,13 +8,18 @@ const RES = 20
 
 export const KINDS = Object.keys(PETALS)
 
-const Petals = ({ color = "pink", color2 = "hotpink", kind = "clover" }) => {
+const Petals = ({
+  color = "pink",
+  color2 = "hotpink",
+  kind = "clover",
+  ...props
+}) => {
   const [primaryPetals, secondaryPetals] = PETALS[kind] || PETALS[KINDS[0]]
   return (
-    <>
+    <g {...props}>
       <g fill={color}>{primaryPetals}</g>
       {secondaryPetals && <g fill={color2}>{secondaryPetals}</g>}
-    </>
+    </g>
   )
 }
 

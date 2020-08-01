@@ -3,11 +3,35 @@ name: Getting Started
 route: /docs
 ---
 
-# Getting Started
+# Pixel Flowers
 
-## Hello world
+import { useState } from "react"
+import random from "lodash/random"
+import { Playground } from "docz"
+import { FlowerSvg as Flower } from "src/components/flower"
+import { KINDS as STEMS } from "src/paths/stems"
+import { KINDS as PETALS } from "src/paths/petals"
+import { KINDS as PISTILS } from "src/paths/pistils"
 
 Type here the most beautiful getting started that you ever saw!
+
+<Playground>
+    {() => {
+        const [flower, setFlower] = useState()
+
+        function randomFlower() {
+            console.log('random');
+            setFlower({
+                petals: PETALS[random(PETALS.length-1)],
+                stem: STEMS[random(STEMS.length-1)],
+                pistil: PISTILS[random(PISTILS.length-1)],
+            })
+        }
+        const petals = PETALS[random(PETALS.length-1)]
+     return <Flower {...flower} onClick={randomFlower} />
+    }}
+
+</Playground>
 
 [Pistils](/docs/pistils)
 [Petals](/docs/petals)
