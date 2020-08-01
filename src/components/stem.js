@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import STEMS from "../paths/stems"
 
 const SIZE = 128
-const RES = 20
+const RES = 17
 
 export const KINDS = Object.keys(STEMS)
 
@@ -43,7 +43,7 @@ const StemSvg = props => (
     style={{ border: `1px solid #ddd`, marginRight: "8px" }}
     shapeRendering="crispEdges"
   >
-    <g transform={`translate(4, 4)`}>
+    <g transform={`translate(5, 2)`}>
       <Stem {...props} />
     </g>
   </svg>
