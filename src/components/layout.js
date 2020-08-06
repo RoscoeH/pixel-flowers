@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
         sx={{
           margin: `0 auto`,
           maxWidth: 960,
-          px: 4,
+          px: 3,
         }}
       >
         <main>{children}</main>

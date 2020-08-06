@@ -9,9 +9,9 @@ const Header = ({ siteTitle }) => (
       sx={{
         margin: `0 auto`,
         maxWidth: 960,
-        px: 4,
-        pt: 5,
-        pb: 4,
+        px: 3,
+        pt: 4,
+        pb: 3,
       }}
     >
       <h1 sx={{ margin: 0 }}>
