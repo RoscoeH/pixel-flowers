@@ -6,6 +6,12 @@ import { KINDS as STEMS } from "src/paths/stems"
 import { KINDS as PETALS } from "src/paths/petals"
 import { KINDS as PISTILS } from "src/paths/pistils"
 
+const PARTS = {
+  pistil: PISTILS,
+  petals: PETALS,
+  stem: STEMS,
+}
+
 function pickRandomParts() {
   return {
     petals: PETALS[random(PETALS.length - 1)],
@@ -43,11 +49,31 @@ export function pickRandomFlower() {
   }
 }
 
-export function useFlower() {
-  const [flower, setFlower] = useState()
+export function useFlower(init) {
+  const [flower, setFlower] = useState(init)
 
   function randomFlower() {
     setFlower(pickRandomFlower())
   }
-  return { flower, setFlower, randomFlower }
+
+  function setKind(part, kind) {
+    setFlower({
+      ...flower,
+      [part]: kind,
+    })
+  }
+
+  function prevKind(part) {
+    const kinds = PARTS[part]
+    const prevKindIndex = (kinds.indexOf(flower[part]) - 1) % kinds.length
+    setKind(part, kinds[prevKindIndex])
+  }
+
+  function nextKind(part) {
+    const kinds = PARTS[part]
+    const nextKindIndex = (kinds.indexOf(flower[part]) + 1) % kinds.length
+    setKind(part, kinds[nextKindIndex])
+  }
+
+  return { flower, setFlower, setKind, prevKind, nextKind, randomFlower }
 }
