@@ -47,12 +47,12 @@ Flower.propTypes = {
 
 export default Flower
 
-const FlowerSvg = ({ backgroundColor, onClick, ...props }) => (
+const FlowerSvg = ({ backgroundColor, onClick, style, ...props }) => (
   <svg
     width={SIZE}
     height={SIZE}
     viewBox={`0 0 ${RES} ${RES}`}
-    style={{ marginRight: "8px", backgroundColor }}
+    style={{ verticalAlign: "top", backgroundColor, ...style }}
     shapeRendering="crispEdges"
     onClick={onClick}
   >
@@ -68,6 +68,6 @@ export const RandomFlower = () => {
   const { flower, randomFlower } = useFlower()
   useEffect(() => {
     randomFlower()
-  }, [])
+  }, [randomFlower])
   return <FlowerSvg {...flower} />
 }

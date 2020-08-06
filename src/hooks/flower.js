@@ -1,12 +1,12 @@
 import { useState } from "react"
 import random from "lodash/random"
-import { random as randomColor, isReadable } from "@ctrl/tinycolor"
+import { random as randomColor } from "@ctrl/tinycolor"
 
 import { KINDS as STEMS } from "src/paths/stems"
 import { KINDS as PETALS } from "src/paths/petals"
 import { KINDS as PISTILS } from "src/paths/pistils"
 
-function randomParts() {
+function pickRandomParts() {
   return {
     petals: PETALS[random(PETALS.length - 1)],
     stem: STEMS[random(STEMS.length - 1)],
@@ -14,24 +14,7 @@ function randomParts() {
   }
 }
 
-function randomReadableColor(existingColor, count = 1) {
-  const colors = []
-  while (colors.length < count) {
-    let color = randomColor()
-    let attempt = 0
-
-    while (!isReadable(color, existingColor) && attempt < 10) {
-      color = randomColor()
-      attempt++
-      if (isReadable(color, existingColor)) {
-        colors.push(color)
-      }
-    }
-  }
-  return colors.length === 1 ? colors[0] : colors
-}
-
-function randomColors() {
+function pickRandomColors() {
   const backgroundColor = randomColor({ luminosity: "light" })
     .tint(85)
     .desaturate(30)
@@ -53,14 +36,18 @@ function randomColors() {
   }
 }
 
+export function pickRandomFlower() {
+  return {
+    ...pickRandomParts(),
+    ...pickRandomColors(),
+  }
+}
+
 export function useFlower() {
   const [flower, setFlower] = useState()
 
   function randomFlower() {
-    setFlower({
-      ...randomParts(),
-      ...randomColors(),
-    })
+    setFlower(pickRandomFlower())
   }
   return { flower, setFlower, randomFlower }
 }
