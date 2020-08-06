@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { useState, useEffect } from "react"
+import { navigate } from "@reach/router"
 import InfiniteScroll from "react-infinite-scroll-component"
 
 import { FlowerSvg } from "./flower"
 import { pickRandomFlower } from "../hooks/flower"
+import { urlEncode } from "../util/encode"
 
 const INITIAL_FLOWERS = 72
 const FETCH_SIZE = 32
@@ -28,6 +30,11 @@ const InfiniteFlowers = () => {
     setFlowers(newFlowers)
   }
 
+  function goToFlower(flower) {
+    const flowerUrl = urlEncode(flower)
+    navigate(`/flower/${flowerUrl}`)
+  }
+
   return (
     <InfiniteScroll
       next={fetchFlowers}
@@ -43,6 +50,7 @@ const InfiniteFlowers = () => {
           height={128}
           style={{ flex: "1 1 auto", margin: "4px" }}
           {...flower}
+          onClick={() => goToFlower(flower)}
         />
       ))}
     </InfiniteScroll>
