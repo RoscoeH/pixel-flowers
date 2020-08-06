@@ -25,15 +25,10 @@ const Layout = ({ children }) => {
         sx={{
           margin: `0 auto`,
           maxWidth: 960,
-          px: 3,
+          px: 2,
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     </React.Fragment>
   )

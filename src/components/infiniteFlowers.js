@@ -46,8 +46,8 @@ const InfiniteFlowers = () => {
       {flowers.map((flower, i) => (
         <FlowerSvg
           key={i}
-          width={120}
-          height={128}
+          width={96}
+          height={104}
           style={{ flex: "1 1 auto", margin: "4px" }}
           {...flower}
           onClick={() => goToFlower(flower)}
