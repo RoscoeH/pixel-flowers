@@ -4,8 +4,8 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import { FlowerSvg } from "./flower"
 import { pickRandomFlower } from "../hooks/flower"
 
-const INITIAL_FLOWERS = 64
-const FETCH_SIZE = 16
+const INITIAL_FLOWERS = 72
+const FETCH_SIZE = 32
 
 const InfiniteFlowers = () => {
   const [flowers, setFlowers] = useState([])
