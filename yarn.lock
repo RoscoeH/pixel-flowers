@@ -16569,6 +16569,11 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
+url-base64-node@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/url-base64-node/-/url-base64-node-1.0.5.tgz#63d1aea9b756f32714f8788e26205df1252029c5"
+  integrity sha1-Y9GuqbdW8ycU+HiOJiBd8SUgKcU=
+
 url-loader@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-1.1.2.tgz#b971d191b83af693c5e3fea4064be9e1f2d7f8d8"
