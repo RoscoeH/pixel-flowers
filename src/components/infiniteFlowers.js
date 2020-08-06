@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { useState, useEffect } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
 import { FlowerSvg } from "./flower"
@@ -30,10 +32,18 @@ const InfiniteFlowers = () => {
     <InfiniteScroll
       next={fetchFlowers}
       dataLength={flowers.length}
+      scrollThreshold={0.7}
       hasMore={true}
+      style={{ display: "flex", flexWrap: "wrap", margin: "0 -4px" }}
     >
       {flowers.map((flower, i) => (
-        <FlowerSvg key={i} {...flower} />
+        <FlowerSvg
+          key={i}
+          width={120}
+          height={128}
+          style={{ flex: "1 1 auto", margin: "4px" }}
+          {...flower}
+        />
       ))}
     </InfiniteScroll>
   )

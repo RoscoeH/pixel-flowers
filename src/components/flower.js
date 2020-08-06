@@ -47,12 +47,20 @@ Flower.propTypes = {
 
 export default Flower
 
-const FlowerSvg = ({ backgroundColor, onClick, style, ...props }) => (
+const FlowerSvg = ({
+  backgroundColor,
+  onClick,
+  style,
+  width = SIZE,
+  height = SIZE,
+  ...props
+}) => (
   <svg
-    width={SIZE}
-    height={SIZE}
+    width={width}
+    height={height}
     viewBox={`0 0 ${RES} ${RES}`}
     style={{ verticalAlign: "top", backgroundColor, ...style }}
+    preserveAspectRatio="xMidYMid meet"
     shapeRendering="crispEdges"
     onClick={onClick}
   >
