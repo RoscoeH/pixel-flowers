@@ -5,6 +5,7 @@ module.exports = {
     author: `@roscoeh`,
   },
   plugins: [
+    `gatsby-plugin-snipcart-advanced`,
     `gatsby-theme-docz`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
