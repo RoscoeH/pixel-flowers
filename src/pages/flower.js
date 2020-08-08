@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import { Router } from "@reach/router"
 import { TinyColor } from "@ctrl/tinycolor"
 import { ThemeProvider } from "theme-ui"
+import { CaretLeft, CaretRight } from "react-bytesize-icons"
 
 import SEO from "../components/seo"
 import { FlowerSvg } from "../components/flower"
@@ -79,22 +80,52 @@ const PartMenuItem = ({
     <div
       sx={{
         bg: "muted",
+        p: 2,
         "&:not(:last-child)": {
           mb: 2,
         },
       }}
       {...props}
     >
-      <div sx={{ p: 3 }} onClick={onClick}>
+      <div
+        sx={{
+          fontSize: 4,
+          textTransform: "uppercase",
+          color: "text",
+          "&:not(:last-child)": { pb: 2 },
+        }}
+        onClick={onClick}
+      >
         {name}
       </div>
       {open && (
-        <div sx={{ px: 3, pb: 3, display: "flex" }}>
-          <Button onClick={onPrev}>&lt;</Button>
-          <span sx={{ px: 2, flex: "1 1 auto", textAlign: "center" }}>
+        <div
+          sx={{
+            display: "flex",
+            border: "1px solid muted",
+            borderColor: "muted",
+            "& > *:not(:last-child)": {
+              mr: 2,
+            },
+          }}
+        >
+          <Button onClick={onPrev}>
+            <CaretLeft sx={{ display: "block" }} />
+          </Button>
+          <span
+            sx={{
+              bg: "muted",
+              flex: "1 1 auto",
+              textAlign: "center",
+              fontSize: 3,
+              lineHeight: 2,
+            }}
+          >
             {kind}
           </span>
-          <Button onClick={onNext}>&gt;</Button>
+          <Button onClick={onNext}>
+            <CaretRight sx={{ display: "block" }} />
+          </Button>
         </div>
       )}
     </div>
@@ -102,7 +133,17 @@ const PartMenuItem = ({
 }
 
 const Button = ({ children, ...props }) => (
-  <button sx={{ border: "none", bg: "muted", width: 50 }} {...props}>
+  <button
+    sx={{
+      border: "none",
+      bg: "muted",
+      px: 2,
+      height: "auto",
+      display: "inline-block",
+      color: "text",
+    }}
+    {...props}
+  >
     {children}
   </button>
 )

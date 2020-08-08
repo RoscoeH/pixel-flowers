@@ -12523,6 +12523,11 @@ react-ace@^7.0.2:
     lodash.isequal "^4.5.0"
     prop-types "^15.7.2"
 
+react-bytesize-icons@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/react-bytesize-icons/-/react-bytesize-icons-0.12.2.tgz#ea36f3087c687e320654dae4dfb819ce3ba541b8"
+  integrity sha512-s4B0XljA4R3Fe7B9l8ZGAwH7YVIauwfx4z0z2uLe1HcX+e3Nb6P1qT0gPf9e92U39K0+gtEZO+bsT3jABwKJJQ==
+
 react-circular-progressbar@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/react-circular-progressbar/-/react-circular-progressbar-2.0.3.tgz#fa8eb59f8db168d2904bae4590641792c80f5991"

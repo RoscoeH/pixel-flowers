@@ -1,6 +1,6 @@
 export default {
   colors: {
-    text: "#333",
+    text: "rgba(0,0,0,0.7)",
     background: "#fff",
     muted: "rgba(0, 0, 0, 0.05)",
   },
