@@ -1,44 +1,44 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import STEMS, { KINDS } from "../paths/stems"
+import POTS, { KINDS } from "../paths/pots"
 
 const SIZE = 128
 const RES = 17
 
-const Stem = ({
+const Pot = ({
   color = "green",
   color2 = "lightgreen",
   kind = "a",
   ...props
 }) => {
-  const [stem, leaves] = STEMS[kind] || STEMS[KINDS[0]]
+  const [base, trimming] = POTS[kind] || POTS[KINDS[0]]
   return (
     <g {...props}>
-      <g fill={color}>{stem}</g>
-      {leaves && <g fill={color2}>{leaves}</g>}
+      <g fill={color}>{base}</g>
+      {trimming && <g fill={color2}>{trimming}</g>}
     </g>
   )
 }
 
-Stem.propTypes = {
+Pot.propTypes = {
   /**
-   * The kind of stem to display
+   * The kind of pot to display
    */
   kind: PropTypes.oneOf(KINDS),
   /**
-   * The color of the stem
+   * The primary color of the pot
    */
   color: PropTypes.string,
   /**
-   * The color of the leave
+   * The color of the trimming
    */
   color2: PropTypes.string,
 }
 
-export default Stem
+export default Pot
 
-const StemSvg = props => (
+const PotSvg = props => (
   <svg
     width={SIZE}
     height={SIZE}
@@ -47,9 +47,9 @@ const StemSvg = props => (
     shapeRendering="crispEdges"
   >
     <g transform={`translate(5, 2)`}>
-      <Stem {...props} />
+      <Pot {...props} />
     </g>
   </svg>
 )
 
-export { StemSvg }
+export { PotSvg }
