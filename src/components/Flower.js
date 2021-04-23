@@ -4,23 +4,28 @@ import PropTypes from "prop-types"
 import Stem from "./Stem"
 import Petals from "./Petals"
 import Pistil from "./Pistil"
+import Pot from "./Pot"
 import { useFlower } from "../hooks/flower"
 import { KINDS as STEMS } from "../paths/stems"
 import { KINDS as PETALS } from "../paths/petals"
 import { KINDS as PISTILS } from "../paths/pistils"
+import { KINDS as POTS } from "../paths/pots"
 
 const SIZE = 128
 const RES = 32
 
 const Flower = ({
-  pistil,
-  petals,
   stem,
-  pistilColor,
   stemColor,
   stemColor2,
+  pistil,
+  pistilColor,
+  petals,
   petalsColor,
   petalsColor2,
+  pot,
+  potColor,
+  potColor2,
 }) => (
   <>
     <Stem
@@ -36,6 +41,12 @@ const Flower = ({
       transform="translate(6,1)"
     />
     <Pistil kind={pistil} color={pistilColor} transform="translate(10,5)" />
+    <Pot
+      kind={pot}
+      color={potColor}
+      color2={potColor2}
+      transform="translate(6,14)"
+    />
   </>
 )
 
@@ -43,6 +54,7 @@ Flower.propTypes = {
   stem: PropTypes.oneOf(STEMS),
   petals: PropTypes.oneOf(PETALS),
   pistil: PropTypes.oneOf(PISTILS),
+  pots: PropTypes.oneOf(POTS),
 }
 
 export default Flower

@@ -7,8 +7,8 @@ const SIZE = 128
 const RES = 17
 
 const Pot = ({
-  color = "green",
-  color2 = "lightgreen",
+  color = "#aaaaaa",
+  color2 = "#ebc0f0",
   kind = "a",
   ...props
 }) => {
