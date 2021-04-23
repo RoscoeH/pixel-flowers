@@ -8,6 +8,7 @@ export default {
   component: Petals,
   argTypes: {
     kind: { control: "select", options: KINDS },
+    color2: { control: "color" },
   },
 }
 

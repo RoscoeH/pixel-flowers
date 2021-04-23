@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 
-import Stem from "./stem"
-import Petals from "./petals"
-import Pistil from "./pistil"
+import Stem from "./Stem"
+import Petals from "./Petals"
+import Pistil from "./Pistil"
 import { useFlower } from "../hooks/flower"
 import { KINDS as STEMS } from "../paths/stems"
 import { KINDS as PETALS } from "../paths/petals"

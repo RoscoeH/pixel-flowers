@@ -2,9 +2,9 @@ import { useState } from "react"
 import random from "lodash/random"
 import { random as randomColor } from "@ctrl/tinycolor"
 
-import { KINDS as STEMS } from "src/paths/stems"
-import { KINDS as PETALS } from "src/paths/petals"
-import { KINDS as PISTILS } from "src/paths/pistils"
+import { KINDS as STEMS } from "../paths/stems"
+import { KINDS as PETALS } from "../paths/petals"
+import { KINDS as PISTILS } from "../paths/pistils"
 
 const PARTS = {
   pistil: PISTILS,

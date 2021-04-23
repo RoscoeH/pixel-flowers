@@ -8,6 +8,7 @@ export default {
   component: Stem,
   argTypes: {
     kind: { control: "select", options: KINDS },
+    color2: { control: "color" },
   },
 }
 
