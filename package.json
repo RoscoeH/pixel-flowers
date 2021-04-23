@@ -29,6 +29,12 @@
     "url-base64-node": "^1.0.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "babel-loader": "^8.2.2",
     "prettier": "2.0.5"
   },
   "keywords": [
@@ -43,7 +49,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "docz": "docz dev"
+    "docz": "docz dev",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
