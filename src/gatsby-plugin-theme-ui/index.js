@@ -1,7 +1,17 @@
 export default {
+  sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256],
+  space: [0, 4, 8, 12, 16, 24, 32, 64, 48, 128, 256],
+
+  radii: [0, 2, 4, 8, 16, 24, 32, 64, 99999],
+  borders: {
+    default: "1px solid",
+  },
   colors: {
+    light: "#ffffff",
+    dark: "#000000",
     text: "rgba(0,0,0,0.7)",
     background: "#fff",
-    muted: "rgba(0, 0, 0, 0.05)",
+    primary: "#9b5de5",
+    muted: "#bea6da",
   },
 }
