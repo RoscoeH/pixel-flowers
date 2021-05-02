@@ -4,42 +4,72 @@ import { jsx } from "theme-ui"
 
 import Icon from "./Icon"
 
-export default function Button({ secondary, icon, children }) {
+const commonStyles = icon => ({
+  display: "inline-flex",
+  border: "none",
+  px: icon ? 3 : 4,
+  py: 3,
+  borderRadius: 3,
+  fontFamily: "heading",
+  fontSize: 3,
+  fontWeight: 600,
+})
+const STYLES = {
+  primary: {
+    bg: "primary",
+    color: "light",
+    border: "none",
+  },
+  secondary: {
+    bg: "light",
+    color: "primary",
+    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.muted}`,
+  },
+}
+const HOVER_STYLES = {
+  primary: {
+    bg: "hover",
+    color: "light",
+    boxShadow: "none",
+  },
+  secondary: {
+    bg: "light",
+    color: "hover",
+    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.primary}`,
+  },
+}
+const ACTIVE_STYLES = {
+  primary: {
+    bg: "dark",
+    color: "light",
+    boxShadow: "none",
+  },
+  secondary: {
+    bg: "light",
+    color: "dark",
+    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.dark}`,
+  },
+}
+export const TYPES = Object.keys(STYLES).reduce(
+  (prev, curr) => ({ ...prev, [curr]: curr }),
+  {}
+)
+
+export default function Button({ secondary, icon, children, sx, ...props }) {
+  const type = secondary ? TYPES.secondary : TYPES.primary
   return (
     <button
       sx={{
-        display: "inline-flex",
-        bg: secondary ? "light" : "primary",
-        color: secondary ? "primary" : "light",
-        boxShadow: secondary
-          ? ({ colors }) => `inset 0 0 0 1px ${colors.muted}`
-          : "none",
-        border: "none",
-        px: icon ? 3 : 4,
-        py: 3,
-        borderRadius: 3,
-        fontFamily: "heading",
-        fontSize: 3,
-        fontWeight: 600,
-
-        "&:hover": {
-          bg: secondary ? "light" : "hover",
-          color: secondary ? "hover" : "light",
-          boxShadow: secondary
-            ? ({ colors }) => `inset 0 0 0 1px ${colors.primary}`
-            : "none",
-        },
-        "&:active": {
-          bg: secondary ? "light" : "dark",
-          color: secondary ? "dark" : "light",
-          boxShadow: secondary
-            ? ({ colors }) => `inset 0 0 0 1px ${colors.dark}`
-            : "none",
-        },
+        ...commonStyles(icon),
+        ...STYLES[type],
+        "&:hover": HOVER_STYLES[type],
+        "&:active": ACTIVE_STYLES[type],
+        ...sx,
       }}
+      {...props}
     >
-      {icon && <Icon icon={icon} sx={children && { mr: 3 }} />}
       {children}
+      {icon && <Icon icon={icon} sx={children && { ml: 0, mr: -2 }} />}
     </button>
   )
 }

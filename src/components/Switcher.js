@@ -3,7 +3,18 @@
 import { jsx } from "theme-ui"
 import { useState, useRef } from "react"
 
-import Icon from "./Icon"
+import Button from "./Button"
+
+const BUTTON_STYLE = {
+  bg: "transparent",
+  color: "dark",
+  boxShadow: "none",
+  "&:hover": {
+    bg: "transparent",
+    color: "primary",
+    boxShadow: "none",
+  },
+}
 
 export default function Switcher({ values = [], onChange }) {
   const selectRef = useRef()
@@ -31,13 +42,24 @@ export default function Switcher({ values = [], onChange }) {
   }
 
   return (
-    <div sx={{ border: "default", borderColor: "primary", display: "flex" }}>
-      <div sx={{ display: "inline-block" }} onClick={handlePrev}>
-        <Icon icon="chevronLeft" />
-      </div>
+    <div
+      sx={{
+        display: "flex",
+        borderRadius: 3,
+        boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.muted}`,
+      }}
+    >
+      <Button
+        icon="chevronLeft"
+        onClick={handlePrev}
+        secondary
+        sx={BUTTON_STYLE}
+      />
       <select
         ref={selectRef}
         sx={{
+          outline: "none",
+          bg: "transparent",
           flex: "1 1 auto",
           height: 7,
           textAlign: "center",
@@ -58,9 +80,12 @@ export default function Switcher({ values = [], onChange }) {
           </option>
         ))}
       </select>
-      <div sx={{ display: "inline-block" }} onClick={handleNext}>
-        <Icon icon="chevronRight" />
-      </div>
+      <Button
+        icon="chevronRight"
+        onClick={handleNext}
+        secondary
+        sx={BUTTON_STYLE}
+      />
     </div>
   )
 }
