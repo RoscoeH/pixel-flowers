@@ -21,4 +21,9 @@ export default {
     muted: "#bea6da",
     hover: "#6f29c2",
   },
+  styles: {
+    root: {
+      fontFamily: "body",
+    },
+  },
 }

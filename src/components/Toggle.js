@@ -3,7 +3,12 @@
 import { jsx, useThemeUI } from "theme-ui"
 import { motion } from "framer-motion"
 
-export default function Toggle({ value = false, disabled = false, onToggle }) {
+export default function Toggle({
+  value = false,
+  disabled = false,
+  onToggle,
+  sx,
+}) {
   const { theme } = useThemeUI()
   const { colors } = theme
 
@@ -37,7 +42,11 @@ export default function Toggle({ value = false, disabled = false, onToggle }) {
       variants={variants}
       animate={value ? enabledOrDisabledOn : enabledOrDisabledOff}
       initial={false}
-      sx={{ display: "inline-block", py: 3, cursor: "pointer" }}
+      sx={{
+        display: "inline-block",
+        py: 3,
+        cursor: disabled ? "not-allowed" : "pointer",
+      }}
       onClick={handleClick}
     >
       <motion.div
