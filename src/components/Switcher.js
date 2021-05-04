@@ -16,27 +16,23 @@ const BUTTON_STYLE = {
   },
 }
 
-export default function Switcher({ values = [], onChange }) {
+export default function Switcher({ value, values = [], onChange }) {
   const selectRef = useRef()
-  const [index, setIndex] = useState(0)
   const handlePrev = () => {
     const currentIndex = values.indexOf(selectRef.current.value)
     const prevIndex =
       currentIndex === 0
         ? values.length - 1
         : (currentIndex - 1) % values.length
-    setIndex(prevIndex)
     onChange && onChange(prevIndex)
   }
   const handleNext = ({ target }) => {
     const currentIndex = values.indexOf(selectRef.current.value)
     const nextIndex = (currentIndex + 1) % values.length
-    setIndex(nextIndex)
     onChange && onChange(nextIndex)
   }
   const handleChange = ({ target }) => {
     const newIndex = values.indexOf(target.value)
-    setIndex(newIndex)
     onChange && onChange(newIndex)
   }
 
@@ -76,12 +72,12 @@ export default function Switcher({ values = [], onChange }) {
             },
             textAlignLast: "center",
           }}
-          value={values[index]}
+          value={value}
           onChange={handleChange}
         >
-          {values.map(value => (
-            <option key={value} value={value}>
-              {value}
+          {values.map(v => (
+            <option key={v} value={v}>
+              {v}
             </option>
           ))}
         </select>

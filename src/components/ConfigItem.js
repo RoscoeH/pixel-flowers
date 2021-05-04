@@ -4,6 +4,7 @@ import { jsx } from "theme-ui"
 
 import Toggle from "./Toggle"
 import ColorInput from "./ColorInput"
+import Switcher from "./Switcher"
 
 function ConfigWrapper({ label, disabled, children }) {
   return (
@@ -49,14 +50,10 @@ function Color({ label, value, onChange, disabled }) {
   )
 }
 
-function List() {
-  return <div>ConfigItem.List</div>
-}
-
 const ConfigItem = {
   Boolean,
   Color,
-  List,
+  List: Switcher,
 }
 
 export default ConfigItem
