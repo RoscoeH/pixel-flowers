@@ -9,14 +9,19 @@ const BUTTON_STYLE = {
   bg: "transparent",
   color: "dark",
   boxShadow: "none",
-  "&:hover": {
+  "&:enabled:hover": {
     bg: "transparent",
     color: "primary",
     boxShadow: "none",
   },
+  "&:disabled": {
+    bg: "transparent",
+    color: "muted",
+    boxShadow: "none",
+  },
 }
 
-export default function Switcher({ value, values = [], onChange }) {
+export default function Switcher({ value, values = [], onChange, disabled }) {
   const selectRef = useRef()
   const handlePrev = () => {
     const currentIndex = values.indexOf(selectRef.current.value)
@@ -40,8 +45,16 @@ export default function Switcher({ value, values = [], onChange }) {
     <div
       sx={{
         display: "flex",
+        bg: "background",
         borderRadius: 3,
-        boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.muted}`,
+        boxShadow: disabled
+          ? "none"
+          : ({ colors }) => `inset 0 0 0 1px ${colors.muted}`,
+        "&:hover": {
+          boxShadow: disabled
+            ? "none"
+            : ({ colors }) => `inset 0 0 0 1px ${colors.primary}`,
+        },
       }}
     >
       <Button
@@ -49,10 +62,11 @@ export default function Switcher({ value, values = [], onChange }) {
         onClick={handlePrev}
         sx={{
           ...BUTTON_STYLE,
-          "&:active": {
+          "&:enabled:active": {
             transform: ({ space }) => `translate(-${space[1]}px, 0)`,
           },
         }}
+        disabled={disabled}
         secondary
       />
       {values.length > 0 ? (
@@ -61,6 +75,7 @@ export default function Switcher({ value, values = [], onChange }) {
           sx={{
             outline: "none",
             bg: "transparent",
+            color: disabled ? "muted" : "text",
             flex: "1 1 auto",
             height: 7,
             textAlign: "center",
@@ -71,9 +86,13 @@ export default function Switcher({ value, values = [], onChange }) {
               display: "none",
             },
             textAlignLast: "center",
+            "&:disabled": {
+              cursor: "not-allowed",
+            },
           }}
           value={value}
           onChange={handleChange}
+          disabled={disabled}
         >
           {values.map(v => (
             <option key={v} value={v}>
@@ -89,10 +108,11 @@ export default function Switcher({ value, values = [], onChange }) {
         onClick={handleNext}
         sx={{
           ...BUTTON_STYLE,
-          "&:active": {
+          "&:enabled:active": {
             transform: ({ space }) => `translate(${space[1]}px, 0)`,
           },
         }}
+        disabled={disabled}
         secondary
       />
     </div>

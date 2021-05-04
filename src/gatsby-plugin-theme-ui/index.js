@@ -19,6 +19,7 @@ export default {
     background: "#fff",
     primary: "#9b5de5",
     muted: "#bea6da",
+    muted2: "#f9f4ff",
     hover: "#6f29c2",
   },
   styles: {

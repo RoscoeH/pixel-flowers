@@ -13,6 +13,9 @@ const commonStyles = icon => ({
   fontFamily: "heading",
   fontSize: 3,
   fontWeight: 600,
+  "&:disabled": {
+    cursor: "not-allowed",
+  },
 })
 const STYLES = {
   primary: {

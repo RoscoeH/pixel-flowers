@@ -13,5 +13,11 @@ Fruits.args = {
   values: ["apples", "bananas", "oranges", "watermelon", "grapes"],
 }
 
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true,
+  values: ["apples", "bananas", "oranges", "watermelon", "grapes"],
+}
+
 export const Empty = Template.bind({})
 Empty.args = {}
