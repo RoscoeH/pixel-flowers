@@ -28,7 +28,7 @@ export default function Switcher({ values = [], onChange }) {
     setIndex(prevIndex)
     onChange && onChange(prevIndex)
   }
-  const handleNext = () => {
+  const handleNext = ({ target }) => {
     const currentIndex = values.indexOf(selectRef.current.value)
     const nextIndex = (currentIndex + 1) % values.length
     console.log(target, selectRef.current.value, currentIndex, nextIndex)
@@ -52,8 +52,13 @@ export default function Switcher({ values = [], onChange }) {
       <Button
         icon="chevronLeft"
         onClick={handlePrev}
+        sx={{
+          ...BUTTON_STYLE,
+          "&:active": {
+            transform: ({ space }) => `translate(-${space[1]}px, 0)`,
+          },
+        }}
         secondary
-        sx={BUTTON_STYLE}
       />
       <select
         ref={selectRef}
@@ -83,8 +88,13 @@ export default function Switcher({ values = [], onChange }) {
       <Button
         icon="chevronRight"
         onClick={handleNext}
+        sx={{
+          ...BUTTON_STYLE,
+          "&:active": {
+            transform: ({ space }) => `translate(${space[1]}px, 0)`,
+          },
+        }}
         secondary
-        sx={BUTTON_STYLE}
       />
     </div>
   )
