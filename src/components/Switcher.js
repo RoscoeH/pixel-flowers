@@ -31,7 +31,6 @@ export default function Switcher({ values = [], onChange }) {
   const handleNext = ({ target }) => {
     const currentIndex = values.indexOf(selectRef.current.value)
     const nextIndex = (currentIndex + 1) % values.length
-    console.log(target, selectRef.current.value, currentIndex, nextIndex)
     setIndex(nextIndex)
     onChange && onChange(nextIndex)
   }
