@@ -27,6 +27,7 @@ export default function ColorInput({ color, onChange, disabled }) {
         boxShadow: disabled
           ? ({ colors }) => `inset 0 0 0 1px ${colors.muted}`
           : "none",
+        cursor: disabled ? "not-allowed" : "auto",
         border: "none",
         height: 6,
         fontFamily: "body",

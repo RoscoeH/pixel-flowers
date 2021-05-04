@@ -3,8 +3,9 @@
 import { jsx } from "theme-ui"
 
 import Toggle from "./Toggle"
+import ColorInput from "./ColorInput"
 
-function Boolean({ label, value, onChange, disabled }) {
+function ConfigWrapper({ label, disabled, children }) {
   return (
     <div
       sx={{
@@ -27,13 +28,25 @@ function Boolean({ label, value, onChange, disabled }) {
       }}
     >
       <label sx={{ color: disabled ? "muted" : "text" }}>{label}</label>
-      <Toggle value={value} disabled={disabled} onToggle={onChange} />
+      {children}
     </div>
   )
 }
 
-function Color() {
-  return <div>ConfigItem.Color</div>
+function Boolean({ label, value, onChange, disabled }) {
+  return (
+    <ConfigWrapper label={label} disabled={disabled}>
+      <Toggle value={value} disabled={disabled} onToggle={onChange} />
+    </ConfigWrapper>
+  )
+}
+
+function Color({ label, value, onChange, disabled }) {
+  return (
+    <ConfigWrapper label={label} disabled={disabled}>
+      <ColorInput color={value} disabled={disabled} onChange={onChange} />
+    </ConfigWrapper>
+  )
 }
 
 function List() {
