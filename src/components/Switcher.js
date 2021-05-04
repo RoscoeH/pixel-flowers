@@ -59,31 +59,35 @@ export default function Switcher({ values = [], onChange }) {
         }}
         secondary
       />
-      <select
-        ref={selectRef}
-        sx={{
-          outline: "none",
-          bg: "transparent",
-          flex: "1 1 auto",
-          height: 7,
-          textAlign: "center",
-          border: "none",
-          appearance: "none",
-          WebkitAppearance: "none",
-          "&::-ms-expand": {
-            display: "none",
-          },
-          textAlignLast: "center",
-        }}
-        value={values[index]}
-        onChange={handleChange}
-      >
-        {values.map(value => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
-      </select>
+      {values.length > 0 ? (
+        <select
+          ref={selectRef}
+          sx={{
+            outline: "none",
+            bg: "transparent",
+            flex: "1 1 auto",
+            height: 7,
+            textAlign: "center",
+            border: "none",
+            appearance: "none",
+            WebkitAppearance: "none",
+            "&::-ms-expand": {
+              display: "none",
+            },
+            textAlignLast: "center",
+          }}
+          value={values[index]}
+          onChange={handleChange}
+        >
+          {values.map(value => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <div sx={{ flex: "1 1 auto" }} />
+      )}
       <Button
         icon="chevronRight"
         onClick={handleNext}
