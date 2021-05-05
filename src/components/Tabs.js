@@ -14,7 +14,7 @@ export function TabButton({ children, selected, onClick }) {
         height: 6,
         fontSize: 2,
         fontFamily: "body",
-        fontWeight: 500,
+        fontWeight: 600,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3,
         "&:hover": {

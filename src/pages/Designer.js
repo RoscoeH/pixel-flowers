@@ -3,13 +3,18 @@
 import { jsx, useThemeUI } from "theme-ui"
 import useDimensions from "react-use-dimensions"
 
-import { FlowerProvider, useFlower, pickRandomFlower } from "../hooks/useFlower"
+import {
+  FlowerProvider,
+  useFlowerContext,
+  useFlower,
+  pickRandomFlower,
+} from "../hooks/useFlower"
 import { FlowerSvg as Flower } from "../components/Flower"
 import Tabs, { Tab } from "../components/Tabs"
 import ConfigList from "../components/ConfigList"
 
-export default function Designer() {
-  const { flower } = useFlower(pickRandomFlower())
+export function Designer() {
+  const { flower } = useFlowerContext()
   const [dimensionsRef, { width }] = useDimensions()
   const { theme } = useThemeUI()
   const { space } = theme
@@ -23,7 +28,7 @@ export default function Designer() {
   }px)`
 
   return (
-    <FlowerProvider flower={flower}>
+    <div>
       <div ref={dimensionsRef}>
         <Flower {...flower} width={width} height={width} />
       </div>
@@ -43,6 +48,15 @@ export default function Designer() {
           </Tab>
         </Tabs>
       </div>
+    </div>
+  )
+}
+
+export default function DesignerWrapper() {
+  const { flower } = useFlower(pickRandomFlower())
+  return (
+    <FlowerProvider flower={flower}>
+      <Designer />
     </FlowerProvider>
   )
 }
