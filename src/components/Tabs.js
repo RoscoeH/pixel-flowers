@@ -32,7 +32,7 @@ export function Tab({ children }) {
   return <div>{children}</div>
 }
 
-export default function Tabs({ children }) {
+export default function Tabs({ children, ...props }) {
   const firstKey = children && children[0].key
   const [selectedKey, setSelectedKey] = useState(firstKey)
   const selectedTab = children.filter(({ key }) => key === selectedKey)
@@ -40,9 +40,10 @@ export default function Tabs({ children }) {
   const selectTab = key => () => setSelectedKey(key)
 
   return (
-    <div>
+    <div {...props}>
       <div
         sx={{
+          display: "flex",
           "& > *:not(:last-child)": {
             mr: 2,
           },

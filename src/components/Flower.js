@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
+import useDimensions from "react-use-dimensions"
 
 import Stem from "./Stem"
 import Petals from "./Petals"
@@ -64,23 +65,27 @@ const FlowerSvg = ({
   onClick,
   style,
   width = SIZE,
-  height = SIZE,
+  height,
   ...props
-}) => (
-  <svg
-    width={width}
-    height={height}
-    viewBox={`0 0 ${RES} ${RES}`}
-    style={{ verticalAlign: "top", backgroundColor, ...style }}
-    preserveAspectRatio="xMidYMid meet"
-    shapeRendering="crispEdges"
-    onClick={onClick}
-  >
-    <g transform="translate(4,4)">
-      <Flower {...props} />
-    </g>
-  </svg>
-)
+}) => {
+  const [dimensionsRef, { width: svgWidth }] = useDimensions()
+  return (
+    <svg
+      ref={dimensionsRef}
+      width={width}
+      height={height || svgWidth}
+      viewBox={`0 0 ${RES} ${RES}`}
+      style={{ verticalAlign: "top", backgroundColor, ...style }}
+      preserveAspectRatio="xMidYMid meet"
+      shapeRendering="crispEdges"
+      onClick={onClick}
+    >
+      <g transform="translate(4,4)">
+        <Flower {...props} />
+      </g>
+    </svg>
+  )
+}
 
 export { FlowerSvg }
 
