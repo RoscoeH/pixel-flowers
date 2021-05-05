@@ -7,7 +7,7 @@ import { usePart, PARTS } from "../hooks/useFlower"
 
 export default function ConfigList({ part }) {
   const { properties, togglePart, setKind, setColor, setColor2 } = usePart(part)
-  const enabled = togglePart && properties[`${part}Enabled`]
+  const enabled = !togglePart || (togglePart && properties[`${part}Enabled`])
 
   return (
     <div
