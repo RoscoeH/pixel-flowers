@@ -25,27 +25,30 @@ export default function Switcher({ value, values = [], onChange, disabled }) {
   const selectRef = useRef()
   const handlePrev = () => {
     const currentIndex = values.indexOf(selectRef.current.value)
-    const prevIndex =
+    const newIndex =
       currentIndex === 0
         ? values.length - 1
         : (currentIndex - 1) % values.length
-    onChange && onChange(prevIndex)
+    const newValue = values[newIndex]
+    onChange && onChange(newValue)
   }
   const handleNext = ({ target }) => {
     const currentIndex = values.indexOf(selectRef.current.value)
-    const nextIndex = (currentIndex + 1) % values.length
-    onChange && onChange(nextIndex)
+    const newIndex = (currentIndex + 1) % values.length
+    const newValue = values[newIndex]
+    onChange && onChange(newValue)
   }
   const handleChange = ({ target }) => {
     const newIndex = values.indexOf(target.value)
-    onChange && onChange(newIndex)
+    const newValue = values[newIndex]
+    onChange && onChange(newValue)
   }
 
   return (
     <div
       sx={{
         display: "flex",
-        bg: "background",
+        bg: disabled ? "transparent" : "background",
         borderRadius: 3,
         boxShadow: disabled
           ? "none"

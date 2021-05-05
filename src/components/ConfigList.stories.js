@@ -1,20 +1,35 @@
 import React from "react"
-import ConfigItem from "./ConfigItem"
+import { FlowerProvider, pickRandomFlower } from "../hooks/useFlower"
 import ConfigList from "./ConfigList"
 
 export default {
   title: "Components/ConfigList",
   component: ConfigList,
+  decorators: [
+    Story => (
+      <FlowerProvider flower={pickRandomFlower()}>{Story()}</FlowerProvider>
+    ),
+  ],
 }
 
 const Template = args => <ConfigList {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-  children: [
-    <ConfigItem.Boolean label="Enabled" value={true} />,
-    <ConfigItem.List value="Daffofil" values={["Daffodil"]} />,
-    <ConfigItem.Color label="Primary Color" value="#42a9cf" />,
-    <ConfigItem.Color label="Secondary Color" value="#fc9dc3" />,
-  ],
+export const Stem = Template.bind({})
+Stem.args = {
+  part: "stem",
+}
+
+export const Pistil = Template.bind({})
+Pistil.args = {
+  part: "pistil",
+}
+
+export const Petals = Template.bind({})
+Petals.args = {
+  part: "petals",
+}
+
+export const Pot = Template.bind({})
+Pot.args = {
+  part: "pot",
 }

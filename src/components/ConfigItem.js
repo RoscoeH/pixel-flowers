@@ -6,11 +6,11 @@ import Toggle from "./Toggle"
 import ColorInput from "./ColorInput"
 import Switcher from "./Switcher"
 
-function ConfigWrapper({ label, disabled, children }) {
+function ConfigWrapper({ label, disabled, children, onClick }) {
   return (
     <div
       sx={{
-        bg: "background",
+        bg: disabled ? "transparent" : "background",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -27,6 +27,7 @@ function ConfigWrapper({ label, disabled, children }) {
             : ({ colors }) => `inset 0 0 0 1px ${colors.primary}`,
         },
       }}
+      onClick={onClick}
     >
       <label sx={{ color: disabled ? "muted" : "text" }}>{label}</label>
       {children}
@@ -36,7 +37,7 @@ function ConfigWrapper({ label, disabled, children }) {
 
 function Boolean({ label, value, onChange, disabled }) {
   return (
-    <ConfigWrapper label={label} disabled={disabled}>
+    <ConfigWrapper label={label} disabled={disabled} onClick={onChange}>
       <Toggle value={value} disabled={disabled} onToggle={onChange} />
     </ConfigWrapper>
   )

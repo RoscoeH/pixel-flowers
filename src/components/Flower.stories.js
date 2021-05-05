@@ -21,6 +21,7 @@ const Template = args => <Flower {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
+  backgroundColor: "skyblue",
   pistil: "indented",
   petals: "daffodil",
   stem: "a",

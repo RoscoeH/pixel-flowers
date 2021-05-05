@@ -22,7 +22,7 @@ export default function ColorInput({ color, onChange, disabled }) {
       disabled={disabled}
       size="7"
       sx={{
-        bg: disabled ? "light" : hexColor,
+        bg: disabled ? "transparent" : hexColor,
         color: disabled ? "muted" : lightOrDarkColor,
         boxShadow: disabled
           ? ({ colors }) => `inset 0 0 0 1px ${colors.muted}`
