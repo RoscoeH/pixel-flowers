@@ -11,7 +11,7 @@ export function TabButton({ children, selected, onClick }) {
         bg: selected ? "muted2" : "transparent",
         color: "dark",
         px: 4,
-        py: 2,
+        height: 6,
         fontSize: 2,
         fontFamily: "body",
         fontWeight: 500,
@@ -32,7 +32,7 @@ export function Tab({ children }) {
   return <div>{children}</div>
 }
 
-export default function Tabs({ children, ...props }) {
+export default function Tabs({ height, children }) {
   const firstKey = children && children[0].key
   const [selectedKey, setSelectedKey] = useState(firstKey)
   const selectedTab = children.filter(({ key }) => key === selectedKey)
@@ -40,7 +40,7 @@ export default function Tabs({ children, ...props }) {
   const selectTab = key => () => setSelectedKey(key)
 
   return (
-    <div {...props}>
+    <div sx={{ pt: 4, overflowX: "hidden" }}>
       <div
         sx={{
           display: "flex",
@@ -59,7 +59,7 @@ export default function Tabs({ children, ...props }) {
           </TabButton>
         ))}
       </div>
-      <div>{selectedTab}</div>
+      <div sx={{ height, overflowY: "auto" }}>{selectedTab}</div>
     </div>
   )
 }
