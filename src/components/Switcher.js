@@ -4,6 +4,7 @@ import { jsx } from "theme-ui"
 import { useState, useRef } from "react"
 
 import Button from "./Button"
+import { capitalize } from "../core/utils"
 
 const BUTTON_STYLE = {
   bg: "transparent",
@@ -76,6 +77,8 @@ export default function Switcher({ value, values = [], onChange, disabled }) {
         <select
           ref={selectRef}
           sx={{
+            fontFamily: "body",
+            fontSize: 2,
             outline: "none",
             bg: "transparent",
             color: disabled ? "muted" : "text",
@@ -99,7 +102,7 @@ export default function Switcher({ value, values = [], onChange, disabled }) {
         >
           {values.map(v => (
             <option key={v} value={v}>
-              {v}
+              {capitalize(v)}
             </option>
           ))}
         </select>

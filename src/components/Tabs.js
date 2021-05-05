@@ -44,6 +44,8 @@ export default function Tabs({ height, children }) {
       <div
         sx={{
           display: "flex",
+          borderBottom: ({ space }) => `${space[3]}px solid`,
+          borderColor: "muted2",
           "& > *:not(:last-child)": {
             mr: 2,
           },
@@ -59,7 +61,7 @@ export default function Tabs({ height, children }) {
           </TabButton>
         ))}
       </div>
-      <div sx={{ height, overflowY: "auto" }}>{selectedTab}</div>
+      <div sx={{ height, overflowY: "auto", bg: "muted2" }}>{selectedTab}</div>
     </div>
   )
 }

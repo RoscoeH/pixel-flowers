@@ -19,3 +19,7 @@ export function urlDecode(url) {
   const base64 = unescape(url)
   return decode(base64)
 }
+
+export function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}

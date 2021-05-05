@@ -14,9 +14,9 @@ export default function ConfigList({ part }) {
       sx={{
         bg: "muted2",
         px: 4,
-        py: 2,
-        "& > *": {
-          my: 2,
+        pb: 3,
+        "& > *:not(:last-child)": {
+          mb: 3,
         },
       }}
     >

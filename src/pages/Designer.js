@@ -17,8 +17,9 @@ export default function Designer() {
   // Hack to enable nested scrolling without fixed height
   const tabButtonsHeight = space[6]
   const tabButtonsPadding = space[4]
+  const tabButtonsBorder = space[3]
   const tabsHeight = `calc(100vh - ${
-    width + tabButtonsHeight + tabButtonsPadding
+    width + tabButtonsHeight + tabButtonsPadding + tabButtonsBorder
   }px)`
 
   return (
