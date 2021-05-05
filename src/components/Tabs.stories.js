@@ -51,16 +51,16 @@ NoLabels.args = {
 export const FlowerConfig = Template.bind({})
 FlowerConfig.args = {
   children: [
-    <Tab key="pot">
+    <Tab key="pot" label="Pot">
       <ConfigList part="pot" />
     </Tab>,
-    <Tab key="stem">
+    <Tab key="stem" label="Stem">
       <ConfigList part="stem" />
     </Tab>,
-    <Tab key="pistil">
+    <Tab key="pistil" label="Pistil">
       <ConfigList part="pistil" />
     </Tab>,
-    <Tab key="petals">
+    <Tab key="petals" label="Petals">
       <ConfigList part="petals" />
     </Tab>,
   ],
