@@ -49,7 +49,7 @@ export default function Tabs({ height, selected, onChange, children }) {
   })
 
   return (
-    <div sx={{ pt: 4, overflowX: "hidden" }}>
+    <div sx={{ pt: 2, overflowX: "hidden" }}>
       <div
         sx={{
           display: "flex",
