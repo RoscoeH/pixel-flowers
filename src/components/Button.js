@@ -7,6 +7,7 @@ import Icon from "./Icon"
 const commonStyles = icon => ({
   display: "inline-flex",
   justifyContent: "center",
+  alignItems: "center",
   border: "none",
   px: icon ? 3 : 4,
   py: 2,
