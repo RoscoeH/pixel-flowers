@@ -42,7 +42,7 @@ export default function Tabs({ height, selected, onChange, children }) {
   const selectedTab = children.filter(({ key }) => key === selectedKey)
 
   const selectTab = key => () =>
-    onChagne ? onChange(key) : setSelectedKey(key)
+    onChange ? onChange(key) : setSelectedKey(key)
 
   useEffect(() => {
     scrollTop()
