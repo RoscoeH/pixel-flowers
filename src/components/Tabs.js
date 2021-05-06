@@ -32,12 +32,14 @@ export function Tab({ children }) {
   return <div>{children}</div>
 }
 
-export default function Tabs({ height, children }) {
+export default function Tabs({ height, selected, onChange, children }) {
   const firstKey = children && children[0].key
-  const [selectedKey, setSelectedKey] = useState(firstKey)
+  const [_selectedKey, setSelectedKey] = useState(firstKey)
+  const selectedKey = selected || _selectedKey
   const selectedTab = children.filter(({ key }) => key === selectedKey)
 
-  const selectTab = key => () => setSelectedKey(key)
+  const selectTab = key => () =>
+    onChange ? onChange(key) : setSelectedKey(key)
 
   return (
     <div sx={{ pt: 4, overflowX: "hidden" }}>

@@ -16,7 +16,7 @@ import ConfigList from "../components/ConfigList"
 import Button from "../components/Button"
 import ButtonGroup from "../components/ButtonGroup"
 
-const DEFAULT_TAB = "pot"
+const DEFAULT_TAB = "stem"
 
 export function Designer() {
   const { flower } = useFlowerContext()
@@ -41,7 +41,11 @@ export function Designer() {
         <Flower {...flower} width={width} height={width} />
       </div>
       <div>
-        <Tabs height={tabsHeight}>
+        <Tabs
+          height={tabsHeight}
+          selected={selectedTab}
+          onChange={setSelectedTab}
+        >
           <Tab key="pot" label="Pot">
             <ConfigList part="pot" />
             <ButtonGroup expand>
@@ -62,16 +66,16 @@ export function Designer() {
           <Tab key="pistil" label="Pistil">
             <ConfigList part="pistil" />
             <ButtonGroup expand>
-              <Button onClick={selectTab("pot")} secondary>
+              <Button onClick={selectTab("stem")} secondary>
                 Previous
               </Button>
-              <Button onClick={selectTab("pistil")}>Next</Button>
+              <Button onClick={selectTab("petals")}>Next</Button>
             </ButtonGroup>
           </Tab>
           <Tab key="petals" label="Petals">
             <ConfigList part="petals" />
             <ButtonGroup expand>
-              <Button onClick={selectTab("pot")} secondary>
+              <Button onClick={selectTab("pistil")} secondary>
                 Previous
               </Button>
             </ButtonGroup>
