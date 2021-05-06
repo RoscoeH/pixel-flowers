@@ -16,7 +16,7 @@ import ConfigList from "../components/ConfigList"
 import Button from "../components/Button"
 import ButtonGroup from "../components/ButtonGroup"
 
-const DEFAULT_TAB = "stem"
+const DEFAULT_TAB = "pot"
 
 export function Designer() {
   const { flower } = useFlowerContext()
