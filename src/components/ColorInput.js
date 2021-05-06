@@ -17,7 +17,7 @@ export default function ColorInput({ color, onChange, disabled }) {
 
   return (
     <input
-      value={hexColor}
+      value={color}
       onChange={handleChange}
       disabled={disabled}
       size="7"
@@ -42,16 +42,14 @@ export default function ColorInput({ color, onChange, disabled }) {
           boxShadow: disabled
             ? "none"
             : ({ colors, space }) =>
-                `inset 0 0 0 ${space[1]}px ${
-                  isLight ? colors.shadow : colors.highlight
-                }`,
+                `inset 0 0 0 2px ${isLight ? colors.shadow : colors.highlight}`,
         },
 
         "&:focus": {
           boxShadow: disabled
             ? "none"
             : ({ colors, space }) =>
-                `inset 0 0 0 ${space[1]}px ${
+                `inset 0 0 0 2px ${
                   isLight ? colors.shadow2 : colors.highlight2
                 }`,
         },
