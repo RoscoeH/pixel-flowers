@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, useThemeUI } from "theme-ui"
+import { jsx, Themed, useThemeUI } from "theme-ui"
 import { useState } from "react"
 import useDimensions from "react-use-dimensions"
 
@@ -23,20 +23,37 @@ export function Designer() {
   const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
   const [dimensionsRef, { width }] = useDimensions()
   const { theme } = useThemeUI()
-  const { space } = theme
+  const { space, sizes } = theme
 
   // Hack to enable nested scrolling without fixed height
+  const appBarHeight = sizes[8]
   const tabButtonsHeight = space[6]
   const tabButtonsPadding = space[4]
   const tabButtonsBorder = space[3]
   const tabsHeight = `calc(100vh - ${
-    width + tabButtonsHeight + tabButtonsPadding + tabButtonsBorder
+    width +
+    appBarHeight +
+    tabButtonsHeight +
+    tabButtonsPadding +
+    tabButtonsBorder
   }px)`
 
   const selectTab = tab => () => setSelectedTab(tab)
 
   return (
     <div>
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          px: 3,
+          height: 8,
+        }}
+      >
+        <Themed.h1 sx={{ m: 0 }}>Customise</Themed.h1>
+        <Button>Done</Button>
+      </div>
       <div ref={dimensionsRef}>
         <Flower {...flower} width={width} height={width} />
       </div>
