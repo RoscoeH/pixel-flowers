@@ -21,6 +21,10 @@ export default {
     muted: "#bea6da",
     muted2: "#f9f4ff",
     hover: "#6f29c2",
+    highlight: "rgba(255, 255, 255, 0.2)",
+    highlight2: "rgba(255, 255, 255, 0.4)",
+    shadow: "rgba(0, 0, 0, 0.2)",
+    shadow2: "rgba(0, 0, 0, 0.4)",
   },
   styles: {
     root: {

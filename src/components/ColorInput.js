@@ -22,6 +22,7 @@ export default function ColorInput({ color, onChange, disabled }) {
       disabled={disabled}
       size="7"
       sx={{
+        outline: "none",
         bg: disabled ? "transparent" : hexColor,
         color: disabled ? "muted" : lightOrDarkColor,
         boxShadow: disabled
@@ -36,6 +37,24 @@ export default function ColorInput({ color, onChange, disabled }) {
         textAlign: "center",
         px: 2,
         my: 2,
+
+        "&:hover": {
+          boxShadow: disabled
+            ? "none"
+            : ({ colors, space }) =>
+                `inset 0 0 0 ${space[1]}px ${
+                  isLight ? colors.shadow : colors.highlight
+                }`,
+        },
+
+        "&:focus": {
+          boxShadow: disabled
+            ? "none"
+            : ({ colors, space }) =>
+                `inset 0 0 0 ${space[1]}px ${
+                  isLight ? colors.shadow2 : colors.highlight2
+                }`,
+        },
       }}
     />
   )
