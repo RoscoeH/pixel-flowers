@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Themed, useThemeUI } from "theme-ui"
-import { useState } from "react"
+import { jsx, Themed } from "theme-ui"
 import useDimensions from "react-use-dimensions"
 
 import {
@@ -11,34 +10,13 @@ import {
   pickRandomFlower,
 } from "../hooks/useFlower"
 import { FlowerSvg as Flower } from "../components/Flower"
-import Tabs, { Tab } from "../components/Tabs"
-import ConfigList from "../components/ConfigList"
-import Button from "../components/Button"
-import ButtonGroup from "../components/ButtonGroup"
 
-const DEFAULT_TAB = "pot"
+import Button from "../components/Button"
+import FlowerConfig from "../components/FlowerConfig"
 
 export function Designer() {
-  const { flower } = useFlowerContext()
-  const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
   const [dimensionsRef, { width }] = useDimensions()
-  const { theme } = useThemeUI()
-  const { space, sizes } = theme
-
-  // Hack to enable nested scrolling without fixed height
-  const appBarHeight = sizes[8]
-  const tabButtonsHeight = space[6]
-  const tabButtonsPadding = space[2]
-  const tabButtonsBorder = space[3]
-  const tabsHeight = `calc(100vh - ${
-    width +
-    appBarHeight +
-    tabButtonsHeight +
-    tabButtonsPadding +
-    tabButtonsBorder
-  }px)`
-
-  const selectTab = tab => () => setSelectedTab(tab)
+  const { flower } = useFlowerContext()
 
   return (
     <div>
@@ -57,48 +35,7 @@ export function Designer() {
       <div ref={dimensionsRef}>
         <Flower {...flower} width={width} height={width} />
       </div>
-      <div>
-        <Tabs
-          height={tabsHeight}
-          selected={selectedTab}
-          onChange={setSelectedTab}
-        >
-          <Tab key="pot" label="Pot">
-            <ConfigList part="pot" />
-            <ButtonGroup expand>
-              <Button onClick={selectTab("stem")} expand>
-                Next
-              </Button>
-            </ButtonGroup>
-          </Tab>
-          <Tab key="stem" label="Stem">
-            <ConfigList part="stem" />
-            <ButtonGroup expand>
-              <Button onClick={selectTab("pot")} secondary>
-                Previous
-              </Button>
-              <Button onClick={selectTab("pistil")}>Next</Button>
-            </ButtonGroup>
-          </Tab>
-          <Tab key="pistil" label="Pistil">
-            <ConfigList part="pistil" />
-            <ButtonGroup expand>
-              <Button onClick={selectTab("stem")} secondary>
-                Previous
-              </Button>
-              <Button onClick={selectTab("petals")}>Next</Button>
-            </ButtonGroup>
-          </Tab>
-          <Tab key="petals" label="Petals">
-            <ConfigList part="petals" />
-            <ButtonGroup expand>
-              <Button onClick={selectTab("pistil")} secondary>
-                Previous
-              </Button>
-            </ButtonGroup>
-          </Tab>
-        </Tabs>
-      </div>
+      <FlowerConfig.Tabbed />
     </div>
   )
 }
