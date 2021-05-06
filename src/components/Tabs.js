@@ -1,7 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+import useScrollTop from "../hooks/useScrollTop"
 
 export function TabButton({ children, selected, onClick }) {
   return (
@@ -33,13 +35,18 @@ export function Tab({ children }) {
 }
 
 export default function Tabs({ height, selected, onChange, children }) {
+  const [scrollRef, scrollTop] = useScrollTop()
   const firstKey = children && children[0].key
   const [_selectedKey, setSelectedKey] = useState(firstKey)
   const selectedKey = selected || _selectedKey
   const selectedTab = children.filter(({ key }) => key === selectedKey)
 
   const selectTab = key => () =>
-    onChange ? onChange(key) : setSelectedKey(key)
+    onChagne ? onChange(key) : setSelectedKey(key)
+
+  useEffect(() => {
+    scrollTop()
+  })
 
   return (
     <div sx={{ pt: 4, overflowX: "hidden" }}>
@@ -63,7 +70,10 @@ export default function Tabs({ height, selected, onChange, children }) {
           </TabButton>
         ))}
       </div>
-      <div sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}>
+      <div
+        ref={scrollRef}
+        sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}
+      >
         {selectedTab}
       </div>
     </div>
