@@ -6,9 +6,10 @@ import Icon from "./Icon"
 
 const commonStyles = icon => ({
   display: "inline-flex",
+  justifyContent: "center",
   border: "none",
   px: icon ? 3 : 4,
-  py: 3,
+  py: 2,
   borderRadius: 3,
   fontFamily: "heading",
   fontSize: 3,
@@ -58,7 +59,14 @@ export const TYPES = Object.keys(STYLES).reduce(
   {}
 )
 
-export default function Button({ secondary, icon, children, sx, ...props }) {
+export default function Button({
+  secondary,
+  icon,
+  expand,
+  children,
+  sx,
+  ...props
+}) {
   const type = secondary ? TYPES.secondary : TYPES.primary
   return (
     <button
