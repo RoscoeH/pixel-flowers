@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, useThemeUI } from "theme-ui"
+import { useState } from "react"
 import useDimensions from "react-use-dimensions"
 
 import {
@@ -12,9 +13,14 @@ import {
 import { FlowerSvg as Flower } from "../components/Flower"
 import Tabs, { Tab } from "../components/Tabs"
 import ConfigList from "../components/ConfigList"
+import Button from "../components/Button"
+import ButtonGroup from "../components/ButtonGroup"
+
+const DEFAULT_TAB = "pot"
 
 export function Designer() {
   const { flower } = useFlowerContext()
+  const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
   const [dimensionsRef, { width }] = useDimensions()
   const { theme } = useThemeUI()
   const { space } = theme
@@ -27,6 +33,8 @@ export function Designer() {
     width + tabButtonsHeight + tabButtonsPadding + tabButtonsBorder
   }px)`
 
+  const selectTab = tab => () => setSelectedTab(tab)
+
   return (
     <div>
       <div ref={dimensionsRef}>
@@ -36,15 +44,37 @@ export function Designer() {
         <Tabs height={tabsHeight}>
           <Tab key="pot" label="Pot">
             <ConfigList part="pot" />
+            <ButtonGroup expand>
+              <Button onClick={selectTab("stem")} expand>
+                Next
+              </Button>
+            </ButtonGroup>
           </Tab>
           <Tab key="stem" label="Stem">
             <ConfigList part="stem" />
+            <ButtonGroup expand>
+              <Button onClick={selectTab("pot")} secondary>
+                Previous
+              </Button>
+              <Button onClick={selectTab("pistil")}>Next</Button>
+            </ButtonGroup>
           </Tab>
           <Tab key="pistil" label="Pistil">
             <ConfigList part="pistil" />
+            <ButtonGroup expand>
+              <Button onClick={selectTab("pot")} secondary>
+                Previous
+              </Button>
+              <Button onClick={selectTab("pistil")}>Next</Button>
+            </ButtonGroup>
           </Tab>
           <Tab key="petals" label="Petals">
             <ConfigList part="petals" />
+            <ButtonGroup expand>
+              <Button onClick={selectTab("pot")} secondary>
+                Previous
+              </Button>
+            </ButtonGroup>
           </Tab>
         </Tabs>
       </div>

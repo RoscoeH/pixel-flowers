@@ -8,7 +8,7 @@ export default function ButtonGroup({ expand, children }) {
       sx={{
         display: expand ? "flex" : "block",
         "& > button": {
-          flex: "1 1 auto",
+          flex: `1 1 ${Math.floor(100 / (children.length || 1))}%`,
         },
         "& > button:not(:last-child)": {
           mr: 2,

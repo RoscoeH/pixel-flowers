@@ -41,14 +41,14 @@ export default function ColorInput({ color, onChange, disabled }) {
         "&:hover": {
           boxShadow: disabled
             ? "none"
-            : ({ colors, space }) =>
+            : ({ colors }) =>
                 `inset 0 0 0 2px ${isLight ? colors.shadow : colors.highlight}`,
         },
 
         "&:focus": {
           boxShadow: disabled
             ? "none"
-            : ({ colors, space }) =>
+            : ({ colors }) =>
                 `inset 0 0 0 2px ${
                   isLight ? colors.shadow2 : colors.highlight2
                 }`,

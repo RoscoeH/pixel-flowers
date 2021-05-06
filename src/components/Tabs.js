@@ -61,7 +61,9 @@ export default function Tabs({ height, children }) {
           </TabButton>
         ))}
       </div>
-      <div sx={{ height, overflowY: "auto", bg: "muted2" }}>{selectedTab}</div>
+      <div sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}>
+        {selectedTab}
+      </div>
     </div>
   )
 }

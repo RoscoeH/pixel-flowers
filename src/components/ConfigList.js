@@ -13,7 +13,6 @@ export default function ConfigList({ part }) {
     <div
       sx={{
         bg: "muted2",
-        px: 4,
         pb: 3,
         "& > *:not(:last-child)": {
           mb: 3,

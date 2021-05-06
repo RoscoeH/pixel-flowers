@@ -31,3 +31,19 @@ Expand.args = {
     </Button>,
   ],
 }
+
+export const ExpandMany = Template.bind({})
+ExpandMany.args = {
+  expand: true,
+  children: [
+    <Button key="1">One</Button>,
+    <Button key="2" secondary>
+      Two
+    </Button>,
+    <Button key="3">Three</Button>,
+    <Button key="4" secondary>
+      Four
+    </Button>,
+    <Button key="5">Five</Button>,
+  ],
+}
