@@ -35,6 +35,10 @@ export function Designer() {
           alignItems: "center",
           px: 3,
           height: 8,
+          maxWidth: [null, 12, null, 14],
+          m: "0 auto",
+          borderBottom: ["none", null, null, "default"],
+          borderColor: [null, null, null, "muted"],
         }}
       >
         <Themed.h1 sx={{ m: 0 }}>Customise</Themed.h1>
@@ -44,14 +48,24 @@ export function Designer() {
         sx={{
           display: [null, null, null, "flex"],
           flexDirection: ["column", null, null, "row"],
-          maxWidth: [null, 12, null, "unset"],
+          maxWidth: [null, 12, null, 14],
           justifyContent: [null, null, null, "center"],
           alignItems: ["center", null, null, "flex-start"],
           m: "0 auto",
         }}
       >
-        <div ref={dimensionsRef}>
-          <Flower {...flower} width={width} height={width} />
+        <div
+          ref={dimensionsRef}
+          sx={{
+            flex: ["unset", null, null, "1 1 auto"],
+            alignSelf: [null, null, null, "stretch"],
+            bg: [null, null, null, flower.backgroundColor],
+            borderLeft: [null, null, null, "default"],
+            borderBottom: [null, null, null, "default"],
+            borderColor: [null, null, null, "muted"],
+          }}
+        >
+          <Flower {...flower} width="100%" height={width} />
         </div>
         <HideOnDesktop>
           <FlowerConfig.Tabbed />

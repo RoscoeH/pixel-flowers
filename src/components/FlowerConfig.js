@@ -90,6 +90,9 @@ function Sidebar() {
         maxWidth: 11,
         height,
         overflowY: "auto",
+        borderLeft: "default",
+        borderRight: "default",
+        borderColor: "muted",
       }}
     >
       {PART_NAMES.map(partName => (
