@@ -14,6 +14,21 @@ export const PARTS = {
   pot: POTS,
 }
 
+const MUTABLE_PARTS = [
+  "pot",
+  "potColor",
+  "potEnabled",
+  "stem",
+  "stemColor",
+  "stemColor2",
+  "pistil",
+  "pistilColor",
+  "petals",
+  "petalsColor",
+  "petalsColor2",
+  "petalsEnabled",
+]
+
 const PETALS_CHANCE = 0.95
 const POT_CHANCE = 0.75
 
@@ -69,6 +84,21 @@ export function useFlower(init) {
     setFlower(pickRandomFlower())
   }
 
+  function mutateFlower() {
+    const randomPart = MUTABLE_PARTS[random(MUTABLE_PARTS.length - 1)]
+
+    let newValue
+    if (/Color/.test(randomPart)) {
+      newValue = randomColor().toHexString()
+    } else if (/Enabled/.test(randomPart)) {
+      newValue = Math.random() < 0.8
+    } else {
+      newValue = PARTS[randomPart][random(PARTS[randomPart].length - 1)]
+    }
+
+    setKind(randomPart, newValue)
+  }
+
   function setKind(part, kind) {
     setFlower({
       ...flower,
@@ -88,7 +118,15 @@ export function useFlower(init) {
     setKind(part, kinds[nextKindIndex])
   }
 
-  return { flower, setFlower, setKind, prevKind, nextKind, randomFlower }
+  return {
+    flower,
+    setFlower,
+    setKind,
+    prevKind,
+    nextKind,
+    randomFlower,
+    mutateFlower,
+  }
 }
 
 const FlowerContext = createContext()
