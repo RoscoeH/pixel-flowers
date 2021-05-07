@@ -32,7 +32,7 @@ export default function ColorInput({ color, onChange, disabled }) {
         border: "none",
         height: 6,
         fontFamily: "body",
-        fontSize: 2,
+        fontSize: 1,
         borderRadius: 2,
         textAlign: "center",
         px: 2,

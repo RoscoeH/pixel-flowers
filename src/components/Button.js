@@ -13,7 +13,7 @@ const commonStyles = icon => ({
   py: 2,
   borderRadius: 3,
   fontFamily: "heading",
-  fontSize: 3,
+  fontSize: 1,
   fontWeight: 600,
   "&:disabled": {
     cursor: "not-allowed",

@@ -14,7 +14,7 @@ export function TabButton({ children, selected, onClick }) {
         color: "dark",
         px: 4,
         height: 6,
-        fontSize: 2,
+        fontSize: 1,
         fontFamily: "body",
         fontWeight: 600,
         borderTopLeftRadius: 3,

@@ -78,7 +78,7 @@ export default function Switcher({ value, values = [], onChange, disabled }) {
           ref={selectRef}
           sx={{
             fontFamily: "body",
-            fontSize: 2,
+            fontSize: 1,
             outline: "none",
             bg: "transparent",
             color: disabled ? "muted" : "text",

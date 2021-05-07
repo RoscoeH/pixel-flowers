@@ -6,8 +6,9 @@ export default {
     heading: '"Work Sans", sans-serif',
     monospace: "Menlo, monospace",
   },
-  sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256],
-  space: [0, 4, 8, 12, 16, 24, 32, 64, 48, 128, 256],
+  fontSizes: [12, 16, 20, 24, 32, 48, 64],
+  sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 512],
+  space: [0, 4, 8, 12, 16, 24, 32, 64, 48, 128, 256, 320, 512],
   radii: [0, 2, 4, 8, 16, 24, 32, 64, 99999],
   borders: {
     default: "1px solid",
@@ -29,6 +30,12 @@ export default {
   styles: {
     root: {
       fontFamily: "body",
+    },
+    h3: {
+      fontSize: 0,
+      color: "primary",
+      mt: 4,
+      mb: 2,
     },
   },
 }

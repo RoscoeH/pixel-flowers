@@ -14,5 +14,4 @@ export const parameters = {
 
 export const decorators = [
   Story => <ThemeProvider theme={theme}>{Story()}</ThemeProvider>,
-  Story => <Themed.root>{Story()}</Themed.root>,
 ]

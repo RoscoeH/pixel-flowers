@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, useThemeUI } from "theme-ui"
+import { jsx, Themed, useThemeUI } from "theme-ui"
 import { useState } from "react"
 import useDimensions from "react-use-dimensions"
 
@@ -10,8 +10,10 @@ import Button from "../components/Button"
 import ButtonGroup from "../components/ButtonGroup"
 
 import { Global } from "@emotion/react"
+import { capitalize } from "../core/utils"
 
-const DEFAULT_TAB = "pot"
+const PART_NAMES = ["petals", "pistil", "stem", "pot"]
+const DEFAULT_TAB = PART_NAMES[0]
 
 function Tabbed() {
   const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
@@ -20,7 +22,6 @@ function Tabbed() {
   const { space, sizes } = theme
 
   // Hack to enable nested scrolling without fixed height
-  const appBarHeight = sizes[8]
   const tabButtonsHeight = space[6]
   const tabButtonsPadding = space[2]
   const tabButtonsBorder = space[3]
@@ -47,47 +48,43 @@ function Tabbed() {
         selected={selectedTab}
         onChange={setSelectedTab}
       >
-        <Tab key="pot" label="Pot">
-          <ConfigList part="pot" />
-          <ButtonGroup expand>
-            <Button onClick={selectTab("stem")} expand>
-              Next
-            </Button>
-          </ButtonGroup>
-        </Tab>
-        <Tab key="stem" label="Stem">
-          <ConfigList part="stem" />
-          <ButtonGroup expand>
-            <Button onClick={selectTab("pot")} secondary>
-              Previous
-            </Button>
-            <Button onClick={selectTab("pistil")}>Next</Button>
-          </ButtonGroup>
-        </Tab>
-        <Tab key="pistil" label="Pistil">
-          <ConfigList part="pistil" />
-          <ButtonGroup expand>
-            <Button onClick={selectTab("stem")} secondary>
-              Previous
-            </Button>
-            <Button onClick={selectTab("petals")}>Next</Button>
-          </ButtonGroup>
-        </Tab>
-        <Tab key="petals" label="Petals">
-          <ConfigList part="petals" />
-          <ButtonGroup expand>
-            <Button onClick={selectTab("pistil")} secondary>
-              Previous
-            </Button>
-          </ButtonGroup>
-        </Tab>
+        {PART_NAMES.map((partName, index) => (
+          <Tab key={partName} label={capitalize(partName)}>
+            <ConfigList part={partName} />
+            <div sx={{ mt: 3 }}>
+              <ButtonGroup expand>
+                {index > 0 && (
+                  <Button onClick={selectTab(PART_NAMES[index - 1])} secondary>
+                    Previous
+                  </Button>
+                )}
+                {index < PART_NAMES.length - 1 && (
+                  <Button onClick={selectTab(PART_NAMES[index + 1])}>
+                    Next
+                  </Button>
+                )}
+              </ButtonGroup>
+            </div>
+          </Tab>
+        ))}
       </Tabs>
     </div>
   )
 }
 
 function Sidebar() {
-  return <div>Sidebar FlowerCofig</div>
+  return (
+    <div sx={{ px: 3, pt: 3, bg: "muted2", maxWidth: 11 }}>
+      {PART_NAMES.map(partName => (
+        <div key={partName}>
+          <Themed.h3 sx={{ fontSize: 1, mt: 5, mb: 3 }}>
+            {capitalize(partName)}
+          </Themed.h3>
+          <ConfigList part={partName} />
+        </div>
+      ))}
+    </div>
+  )
 }
 
 const FlowerConfig = {
