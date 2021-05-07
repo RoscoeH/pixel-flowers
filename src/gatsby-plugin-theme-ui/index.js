@@ -17,7 +17,7 @@ export default {
   colors: {
     light: "#ffffff",
     dark: "#2e1c43",
-    text: "rgba(0,0,0,0.7)",
+    text: "#2e1c43",
     background: "#fff",
     primary: "#9b5de5",
     muted: "#bea6da",

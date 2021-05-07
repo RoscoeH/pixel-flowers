@@ -4,7 +4,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./Header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header title={data.site.siteMetadata.title} />
       <div
         sx={{
           margin: `0 auto`,

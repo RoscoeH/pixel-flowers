@@ -11,11 +11,11 @@ body {
   height: 100%;
 }
 
-body > div,
+/* body > div,
 body > div > div,
 body > div > div > div {
   height: 100%;
-}
+} */
 article,
 aside,
 details,
