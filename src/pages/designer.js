@@ -66,7 +66,7 @@ export function Designer() {
   return (
     <div>
       <Header>
-        <Themed.h1 sx={{ m: 0 }}>Customise</Themed.h1>
+        <Themed.h1 sx={{ m: 0 }}>Design</Themed.h1>
         <Button>Done</Button>
       </Header>
       <Content>

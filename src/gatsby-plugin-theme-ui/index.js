@@ -37,5 +37,9 @@ export default {
       mt: 4,
       mb: 2,
     },
+    p: {
+      my: 2,
+    },
+    a: { color: "primary" },
   },
 }
