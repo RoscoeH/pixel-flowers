@@ -22,38 +22,54 @@ function HideOnMobile({ children }) {
   return <div sx={{ display: ["none", null, null, "block"] }}>{children}</div>
 }
 
+function Header({ children }) {
+  return (
+    <div
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        px: 3,
+        height: 8,
+        maxWidth: [null, 12, null, 14],
+        m: "0 auto",
+        borderBottom: ["none", null, null, "default"],
+        borderColor: [null, null, null, "muted"],
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function Content({ children }) {
+  return (
+    <div
+      sx={{
+        display: [null, null, null, "flex"],
+        flexDirection: ["column", null, null, "row"],
+        maxWidth: [null, 12, null, 14],
+        justifyContent: [null, null, null, "center"],
+        alignItems: ["center", null, null, "flex-start"],
+        m: "0 auto",
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
 export function Designer() {
   const [dimensionsRef, { width }] = useDimensions()
   const { flower } = useFlowerContext()
 
   return (
     <div>
-      <div
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          px: 3,
-          height: 8,
-          maxWidth: [null, 12, null, 14],
-          m: "0 auto",
-          borderBottom: ["none", null, null, "default"],
-          borderColor: [null, null, null, "muted"],
-        }}
-      >
+      <Header>
         <Themed.h1 sx={{ m: 0 }}>Customise</Themed.h1>
         <Button>Done</Button>
-      </div>
-      <div
-        sx={{
-          display: [null, null, null, "flex"],
-          flexDirection: ["column", null, null, "row"],
-          maxWidth: [null, 12, null, 14],
-          justifyContent: [null, null, null, "center"],
-          alignItems: ["center", null, null, "flex-start"],
-          m: "0 auto",
-        }}
-      >
+      </Header>
+      <Content>
         <div
           ref={dimensionsRef}
           sx={{
@@ -73,7 +89,7 @@ export function Designer() {
         <HideOnMobile>
           <FlowerConfig.Sidebar />
         </HideOnMobile>
-      </div>
+      </Content>
     </div>
   )
 }
