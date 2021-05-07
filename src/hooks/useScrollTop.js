@@ -4,9 +4,8 @@ export default function useScrollTop() {
   const ref = useRef()
 
   const scroll = useCallback(() => {
-    console.log("scroll")
     ref.current.scrollTo(0, 0)
-  }, [ref])
+  }, [ref.current])
 
   return [ref, scroll]
 }
