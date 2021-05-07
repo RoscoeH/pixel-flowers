@@ -14,12 +14,20 @@ import { FlowerSvg as Flower } from "../components/Flower"
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
 
+function HideOnDesktop({ children }) {
+  return <div sx={{ display: [null, null, null, "none"] }}>{children}</div>
+}
+
+function HideOnMobile({ children }) {
+  return <div sx={{ display: ["none", null, null, "block"] }}>{children}</div>
+}
+
 export function Designer() {
   const [dimensionsRef, { width }] = useDimensions()
   const { flower } = useFlowerContext()
 
   return (
-    <div sx={{ maxWidth: [null, 12, null, "unset"], m: "0 auto" }}>
+    <div>
       <div
         sx={{
           display: "flex",
@@ -32,10 +40,26 @@ export function Designer() {
         <Themed.h1 sx={{ m: 0 }}>Customise</Themed.h1>
         <Button>Done</Button>
       </div>
-      <div ref={dimensionsRef}>
-        <Flower {...flower} width={width} height={width} />
+      <div
+        sx={{
+          display: [null, null, null, "flex"],
+          flexDirection: ["column", null, null, "row"],
+          maxWidth: [null, 12, null, "unset"],
+          justifyContent: [null, null, null, "center"],
+          alignItems: ["center", null, null, "flex-start"],
+          m: "0 auto",
+        }}
+      >
+        <div ref={dimensionsRef}>
+          <Flower {...flower} width={width} height={width} />
+        </div>
+        <HideOnDesktop>
+          <FlowerConfig.Tabbed />
+        </HideOnDesktop>
+        <HideOnMobile>
+          <FlowerConfig.Sidebar />
+        </HideOnMobile>
       </div>
-      <FlowerConfig.Tabbed />
     </div>
   )
 }
