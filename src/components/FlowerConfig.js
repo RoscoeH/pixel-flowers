@@ -78,13 +78,23 @@ function Tabbed() {
 }
 
 function Sidebar() {
+  const [dimensionsDef, { y }] = useDimensions()
+  const height = `calc(100vh - ${y}px)`
+
   return (
-    <div sx={{ px: 3, pt: 3, bg: "muted2", maxWidth: 11 }}>
+    <div
+      ref={dimensionsDef}
+      sx={{
+        px: 3,
+        bg: "muted2",
+        maxWidth: 11,
+        height,
+        overflowY: "auto",
+      }}
+    >
       {PART_NAMES.map(partName => (
         <div key={partName}>
-          <Themed.h3 sx={{ fontSize: 1, mt: 5, mb: 3 }}>
-            {capitalize(partName)}
-          </Themed.h3>
+          <Themed.h3 sx={{ mt: 5, mb: 3 }}>{capitalize(partName)}</Themed.h3>
           <ConfigList part={partName} />
         </div>
       ))}

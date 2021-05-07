@@ -33,8 +33,7 @@ export default {
       fontFamily: "body",
     },
     h3: {
-      fontSize: 0,
-      color: "primary",
+      fontSize: 1,
       mt: 4,
       mb: 2,
     },
