@@ -4,9 +4,9 @@ import { useState, useEffect } from "react"
 import { navigate } from "@reach/router"
 import InfiniteScroll from "react-infinite-scroll-component"
 
-import { FlowerSvg } from "./flower"
-import { pickRandomFlower } from "../hooks/flower"
-import { urlEncode } from "../util/encode"
+import { FlowerSvg } from "./Flower"
+import { pickRandomFlower } from "../hooks/useFlower"
+import { urlEncode } from "../core/utils"
 
 const INITIAL_FLOWERS = 72
 const FETCH_SIZE = 32

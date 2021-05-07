@@ -1,7 +1,7 @@
 import React from "react"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
-import Designer from "./Designer"
+import Designer from "./designer"
 
 export default {
   title: "Pages/Designer",

@@ -19,7 +19,7 @@ export function Designer() {
   const { flower } = useFlowerContext()
 
   return (
-    <div>
+    <div sx={{ maxWidth: [null, 12, null, "unset"], m: "0 auto" }}>
       <div
         sx={{
           display: "flex",

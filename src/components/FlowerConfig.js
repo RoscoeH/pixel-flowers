@@ -50,20 +50,25 @@ function Tabbed() {
       >
         {PART_NAMES.map((partName, index) => (
           <Tab key={partName} label={capitalize(partName)}>
-            <ConfigList part={partName} />
-            <div sx={{ mt: 3 }}>
-              <ButtonGroup expand>
-                {index > 0 && (
-                  <Button onClick={selectTab(PART_NAMES[index - 1])} secondary>
-                    Previous
-                  </Button>
-                )}
-                {index < PART_NAMES.length - 1 && (
-                  <Button onClick={selectTab(PART_NAMES[index + 1])}>
-                    Next
-                  </Button>
-                )}
-              </ButtonGroup>
+            <div sx={{ m: "0 auto", px: [0, 6] }}>
+              <ConfigList part={partName} />
+              <div sx={{ mt: 3 }}>
+                <ButtonGroup expand>
+                  {index > 0 && (
+                    <Button
+                      onClick={selectTab(PART_NAMES[index - 1])}
+                      secondary
+                    >
+                      Previous
+                    </Button>
+                  )}
+                  {index < PART_NAMES.length - 1 && (
+                    <Button onClick={selectTab(PART_NAMES[index + 1])}>
+                      Next
+                    </Button>
+                  )}
+                </ButtonGroup>
+              </div>
             </div>
           </Tab>
         ))}

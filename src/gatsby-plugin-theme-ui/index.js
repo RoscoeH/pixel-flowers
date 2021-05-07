@@ -1,14 +1,15 @@
 import "typeface-work-sans"
 
 export default {
+  breakpoints: ["24em", "40em", "48em", "56em"],
   fonts: {
     body: '"Work Sans", sans-serif',
     heading: '"Work Sans", sans-serif',
     monospace: "Menlo, monospace",
   },
   fontSizes: [12, 16, 20, 24, 32, 48, 64],
-  sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 512],
-  space: [0, 4, 8, 12, 16, 24, 32, 64, 48, 128, 256, 320, 512],
+  sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 400, 512],
+  space: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 400, 512],
   radii: [0, 2, 4, 8, 16, 24, 32, 64, 99999],
   borders: {
     default: "1px solid",

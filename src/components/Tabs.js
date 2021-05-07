@@ -53,6 +53,7 @@ export default function Tabs({ height, selected, onChange, children }) {
       <div
         sx={{
           display: "flex",
+          justifyContent: "center",
           borderBottom: ({ space }) => `${space[3]}px solid`,
           borderColor: "muted2",
           "& > *:not(:last-child)": {
