@@ -9,3 +9,6 @@ export default {
 const Template = args => <EvolvingFlower {...args} />
 
 export const Default = Template.bind({})
+
+export const Morph = Template.bind({})
+Morph.args = { morph: true }
