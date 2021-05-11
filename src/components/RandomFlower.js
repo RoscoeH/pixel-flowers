@@ -16,6 +16,13 @@ export default function RandomFlower({ size }) {
       <Flower {...flower} width={size} height={size} rounded />
     </div>
   ) : (
-    <div sx={{ bg: "muted", width: size, height: size, borderRadius: 3 }} />
+    <div
+      sx={{
+        bg: flower.backgroundColor,
+        width: size,
+        height: size,
+        borderRadius: 3,
+      }}
+    />
   )
 }
