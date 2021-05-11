@@ -42,6 +42,29 @@ const IndexPage = () => (
         .
       </Themed.p>
     </Section>
+    <footer
+      sx={{
+        bg: "muted2",
+        fontSize: 0,
+        textAlign: "center",
+        py: 1,
+      }}
+    >
+      <Themed.p>
+        Made with 💜 by <Link href="https://roscoe.dev">roscoe.dev</Link>
+        <br />
+        Check out my other{" "}
+        <Link href="https://roscoe.dev/projects">web thingies</Link>
+        <br />
+        Want to support me?{" "}
+        <Link href="https://www.buymeacoffee.com/roscoe.dev">
+          buy me a coffee
+        </Link>{" "}
+        ☕<br />
+        Copyright &copy; {new Date().getFullYear()}{" "}
+        <Link href="https://roscoe.dev">roscoe.dev</Link>
+      </Themed.p>
+    </footer>
   </Layout>
 )
 

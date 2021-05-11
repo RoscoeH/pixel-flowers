@@ -7,12 +7,12 @@ export default {
     heading: '"Work Sans", sans-serif',
     monospace: "Menlo, monospace",
   },
-  fontSizes: [12, 16, 20, 24, 32, 48, 64],
+  fontSizes: [14, 16, 20, 24, 32, 48, 64],
   sizes: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 400, 512, 720, 960],
   space: [0, 4, 8, 12, 16, 24, 32, 48, 64, 128, 256, 320, 400, 512, 720, 960],
   radii: [0, 2, 4, 8, 16, 24, 32, 64, 99999],
   borders: {
-    default: "1px solid",
+    default: "1px solid primary",
   },
   colors: {
     light: "#ffffff",
