@@ -1,11 +1,15 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { useState } from "react"
 
 import { range } from "../core/utils"
-import RandomFlower from "./RandomFlower"
+import { pickRandomFlower } from "../hooks/useFlower"
+// import RandomFlower from "./RandomFlower"
+import { FlowerSvg as Flower } from "./Flower"
 
 export default function RandomFlowers({ count = 60, size = 96 }) {
+  const [flowers] = useState(range(count).map(pickRandomFlower))
   return (
     <div
       sx={{
@@ -16,8 +20,8 @@ export default function RandomFlowers({ count = 60, size = 96 }) {
         margin: "0 auto",
       }}
     >
-      {range(count).map(i => (
-        <RandomFlower key={i} size={size} />
+      {flowers.map((flower, i) => (
+        <Flower key={i} {...flower} width={size} height={size} rounded />
       ))}
     </div>
   )

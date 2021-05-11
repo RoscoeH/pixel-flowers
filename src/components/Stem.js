@@ -13,6 +13,7 @@ const Stem = ({
   ...props
 }) => {
   const [stem, leaves] = STEMS[kind] || STEMS[KINDS[0]]
+  console.log(kind, stem, leaves)
   return (
     <g {...props}>
       <g fill={color}>{stem}</g>
