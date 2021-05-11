@@ -27,7 +27,7 @@ export default function RandomFlowers({ count = 60, size = 96 }) {
             <RandomFlower key={i} size={size} />
           </motion.div>
         ) : (
-          <div sx={{ bg: "muted2", width: size, height: size }} />
+          <div sx={{ width: size, height: size }} />
         )
       )}
     </div>
