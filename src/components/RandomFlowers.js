@@ -11,9 +11,8 @@ export default function RandomFlowers({ count = 60, size = 96 }) {
   const { isClient, key } = useIsClient()
 
   return (
-    <motion.div
+    <div
       key={key}
-      animate={{ opacity: isClient ? 1 : 0 }}
       sx={{
         display: "grid",
         gridTemplateColumns: `repeat(auto-fill, minmax(${size}px, 1fr))`,
@@ -22,9 +21,15 @@ export default function RandomFlowers({ count = 60, size = 96 }) {
         margin: "0 auto",
       }}
     >
-      {range(count).map(i => (
-        <RandomFlower key={i} size={size} />
-      ))}
-    </motion.div>
+      {range(count).map(i =>
+        isClient ? (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <RandomFlower key={i} size={size} />
+          </motion.div>
+        ) : (
+          <div sx={{ bg: "muted2", width: size, height: size }} />
+        )
+      )}
+    </div>
   )
 }
