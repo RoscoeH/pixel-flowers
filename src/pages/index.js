@@ -6,12 +6,13 @@ import { Link as GatsbyLink, navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import EvolvingFlower from "../components/EvolvingFlower"
+import RandomFlowers from "../components/RandomFlowers"
 import Button from "../components/Button"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <section sx={{ textAlign: "center", mb: 5 }}>
+    <section sx={{ textAlign: "center", mb: 6 }}>
       <EvolvingFlower />
       <Themed.p>
         66 flower parts.
@@ -22,13 +23,13 @@ const IndexPage = () => (
       </Themed.p>
       <Button onClick={() => navigate("/designer")}>Design Your Own</Button>
     </section>
-    <section sx={{ textAlign: "center" }}>
+    <section sx={{ textAlign: "center", mb: 6 }}>
       <Themed.p>
         Looking for inspiration?
         <br />
         Here's a selection of random flowers
       </Themed.p>
-      <Themed.p>Selection of Flowers</Themed.p>
+      <RandomFlowers />
       <Themed.p>
         Want to see more? Check out the{" "}
         <Link to="/garden" as={GatsbyLink}>
