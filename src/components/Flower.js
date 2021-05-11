@@ -40,7 +40,7 @@ const Flower = ({
       color2={stemColor2}
       transform="translate(8,9)"
     />
-    {/* {petalsEnabled && (
+    {petalsEnabled && (
       <Petals
         kind={petals}
         color={petalsColor}
@@ -56,7 +56,7 @@ const Flower = ({
         color2={potColor2}
         transform="translate(6,14)"
       />
-    )} */}
+    )}
   </>
 )
 
