@@ -4,10 +4,12 @@ import { jsx, useThemeUI } from "theme-ui"
 import { Icon as IconifyIcon, InlineIcon } from "@iconify/react"
 import chevronLeft from "@iconify/icons-mdi/chevron-left"
 import chevronRight from "@iconify/icons-mdi/chevron-right"
+import chevronUp from "@iconify/icons-mdi/chevron-up"
 
 const ICONS = {
   chevronLeft,
   chevronRight,
+  chevronUp,
 }
 const DEFAULT_ICON = "chevronLeft"
 

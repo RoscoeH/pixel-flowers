@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
       <div
         sx={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: 14,
           px: 2,
         }}
       >

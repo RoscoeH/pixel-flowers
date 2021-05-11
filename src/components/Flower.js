@@ -1,3 +1,6 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import useDimensions from "react-use-dimensions"
@@ -72,16 +75,22 @@ const FlowerSvg = ({
   style,
   width = SIZE,
   height,
+  rounded,
   ...props
 }) => {
   const [dimensionsRef, { width: svgWidth }] = useDimensions()
   return (
     <svg
       ref={dimensionsRef}
+      sx={{
+        verticalAlign: "top",
+        backgroundColor,
+        borderRadius: rounded ? 3 : 0,
+        ...style,
+      }}
       width={width}
       height={height || svgWidth}
       viewBox={`0 0 ${RES} ${RES}`}
-      style={{ verticalAlign: "top", backgroundColor, ...style }}
       preserveAspectRatio="xMidYMid meet"
       shapeRendering="crispEdges"
       onClick={onClick}

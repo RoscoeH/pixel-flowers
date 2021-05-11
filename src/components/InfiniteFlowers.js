@@ -49,6 +49,7 @@ const InfiniteFlowers = () => {
           width={96}
           height={104}
           style={{ flex: "1 1 auto", margin: "4px" }}
+          rounded
           {...flower}
           onClick={() => goToFlower(flower)}
         />

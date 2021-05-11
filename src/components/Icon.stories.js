@@ -24,5 +24,8 @@ ChevronLeft.args = { icon: "chevronLeft" }
 export const ChevronRight = Template.bind({})
 ChevronRight.args = { icon: "chevronRight" }
 
+export const ChevronUp = Template.bind({})
+ChevronUp.args = { icon: "chevronUp" }
+
 export const Sizes = Multiple.bind({})
 Sizes.args = { icon: "chevronRight", sizes: [8, 16, 24, 32, 40, 48] }

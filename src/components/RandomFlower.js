@@ -7,5 +7,5 @@ import { FlowerSvg as Flower } from "./Flower"
 
 export default function RandomFlower({ size }) {
   const { flower } = useFlower(pickRandomFlower())
-  return <Flower {...flower} width={size} height={size} />
+  return <Flower {...flower} width={size} height={size} rounded />
 }

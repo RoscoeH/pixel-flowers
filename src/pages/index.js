@@ -9,21 +9,25 @@ import EvolvingFlower from "../components/EvolvingFlower"
 import RandomFlowers from "../components/RandomFlowers"
 import Button from "../components/Button"
 
+function Section({ children }) {
+  return <div sx={{ textAlign: "center", mb: 6 }}>{children}</div>
+}
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <section sx={{ textAlign: "center", mb: 6 }}>
+    <Section>
       <EvolvingFlower />
       <Themed.p>
-        66 flower parts.
+        66 flower parts 🌱
         <br />
-        16 million colors.
+        16 million colors 🌈
         <br />
-        <strong>Billions of combinations.</strong>
+        <strong>Billions of combinations ✨</strong>
       </Themed.p>
       <Button onClick={() => navigate("/designer")}>Design Your Own</Button>
-    </section>
-    <section sx={{ textAlign: "center", mb: 6 }}>
+    </Section>
+    <Section>
       <Themed.p>
         Looking for inspiration?
         <br />
@@ -37,7 +41,7 @@ const IndexPage = () => (
         </Link>
         .
       </Themed.p>
-    </section>
+    </Section>
   </Layout>
 )
 
