@@ -2,6 +2,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { useEffect, useState } from "react"
+import useDimensions from "react-use-dimensions"
+import { use100vh } from "react-div-100vh"
 
 import useScrollTop from "../hooks/useScrollTop"
 
@@ -34,7 +36,8 @@ export function Tab({ children }) {
   return <div>{children}</div>
 }
 
-export default function Tabs({ height, selected, onChange, children }) {
+export default function Tabs({ selected, onChange, children }) {
+  const [dimensionsRef, { y }] = useDimensions()
   const [scrollRef, scrollTop] = useScrollTop()
   const firstKey = children && children[0].key
   const [_selectedKey, setSelectedKey] = useState(firstKey)
@@ -43,6 +46,10 @@ export default function Tabs({ height, selected, onChange, children }) {
 
   const selectTab = key => () =>
     onChange ? onChange(key) : setSelectedKey(key)
+
+  const viewportHeight = use100vh()
+
+  const height = viewportHeight - y
 
   useEffect(() => {
     scrollTop()
@@ -71,11 +78,13 @@ export default function Tabs({ height, selected, onChange, children }) {
           </TabButton>
         ))}
       </div>
-      <div
-        ref={scrollRef}
-        sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}
-      >
-        {selectedTab}
+      <div ref={dimensionsRef}>
+        <div
+          ref={scrollRef}
+          sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}
+        >
+          {selectedTab}
+        </div>
       </div>
     </div>
   )
