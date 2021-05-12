@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Themed, useThemeUI } from "theme-ui"
+import { jsx, Themed } from "theme-ui"
 import { useState } from "react"
 import useDimensions from "react-use-dimensions"
 
@@ -8,8 +8,6 @@ import Tabs, { Tab } from "../components/Tabs"
 import ConfigList from "../components/ConfigList"
 import Button from "../components/Button"
 import ButtonGroup from "../components/ButtonGroup"
-
-import { Global } from "@emotion/react"
 import { capitalize } from "../core/utils"
 
 const PART_NAMES = ["petals", "pistil", "stem", "pot"]
@@ -17,37 +15,11 @@ const DEFAULT_TAB = PART_NAMES[0]
 
 function Tabbed() {
   const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
-  const [dimensionsRef, { y }] = useDimensions()
-  const { theme } = useThemeUI()
-  const { space, sizes } = theme
-
-  // Hack to enable nested scrolling without fixed height
-  const tabButtonsHeight = space[6]
-  const tabButtonsPadding = space[2]
-  const tabButtonsBorder = space[3]
-  const tabsHeight = `calc(100vh - ${
-    y + tabButtonsHeight + tabButtonsPadding + tabButtonsBorder
-  }px)`
-
   const selectTab = tab => () => setSelectedTab(tab)
 
   return (
-    <div ref={dimensionsRef}>
-      <Global
-        styles={{
-          html: {
-            overflow: "hidden",
-          },
-          body: {
-            overflow: "hidden",
-          },
-        }}
-      />
-      <Tabs
-        height={tabsHeight}
-        selected={selectedTab}
-        onChange={setSelectedTab}
-      >
+    <div>
+      <Tabs selected={selectedTab} onChange={setSelectedTab}>
         {PART_NAMES.map((partName, index) => (
           <Tab key={partName} label={capitalize(partName)}>
             <div sx={{ m: "0 auto", px: [0, 6] }}>

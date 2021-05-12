@@ -4,6 +4,7 @@ import { jsx } from "theme-ui"
 import { useEffect, useState } from "react"
 import useDimensions from "react-use-dimensions"
 import { use100vh } from "react-div-100vh"
+import { Global } from "@emotion/react"
 
 import useScrollTop from "../hooks/useScrollTop"
 
@@ -57,6 +58,16 @@ export default function Tabs({ selected, onChange, children }) {
 
   return (
     <div sx={{ pt: 2, overflowX: "hidden" }}>
+      <Global
+        styles={{
+          html: {
+            overflow: "hidden",
+          },
+          body: {
+            overflow: "hidden",
+          },
+        }}
+      />
       <div
         sx={{
           display: "flex",
