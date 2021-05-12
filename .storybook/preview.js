@@ -1,5 +1,5 @@
 import React from "react"
-import { ThemeProvider, Themed } from "theme-ui"
+import { ThemeProvider } from "theme-ui"
 import theme from "../src/gatsby-plugin-theme-ui"
 
 export const parameters = {

@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react"
+import React, { useState, useCallback, useContext, createContext } from "react"
 import random from "lodash/random"
 import { random as randomColor } from "@ctrl/tinycolor"
 
@@ -41,7 +41,7 @@ function pickRandomParts() {
   }
 }
 
-function pickRandomColors() {
+export function pickRandomColors() {
   const backgroundColor = randomColor({ luminosity: "light" })
     .tint(85)
     .desaturate(30)
@@ -80,11 +80,21 @@ export function pickRandomFlower() {
 export function useFlower(init) {
   const [flower, setFlower] = useState(init)
 
-  function randomFlower() {
-    setFlower(pickRandomFlower())
-  }
+  const setKind = useCallback(
+    (part, kind) => {
+      setFlower({
+        ...flower,
+        [part]: kind,
+      })
+    },
+    [flower, setFlower]
+  )
 
-  function mutateFlower() {
+  const randomFlower = useCallback(() => {
+    setFlower(pickRandomFlower())
+  }, [setFlower])
+
+  const mutateFlower = useCallback(() => {
     const randomPart = MUTABLE_PARTS[random(MUTABLE_PARTS.length - 1)]
 
     let newValue
@@ -97,26 +107,25 @@ export function useFlower(init) {
     }
 
     setKind(randomPart, newValue)
-  }
+  }, [setKind])
 
-  function setKind(part, kind) {
-    setFlower({
-      ...flower,
-      [part]: kind,
-    })
-  }
+  const prevKind = useCallback(
+    part => {
+      const kinds = PARTS[part]
+      const prevKindIndex = (kinds.indexOf(flower[part]) - 1) % kinds.length
+      setKind(part, kinds[prevKindIndex])
+    },
+    [flower, setKind]
+  )
 
-  function prevKind(part) {
-    const kinds = PARTS[part]
-    const prevKindIndex = (kinds.indexOf(flower[part]) - 1) % kinds.length
-    setKind(part, kinds[prevKindIndex])
-  }
-
-  function nextKind(part) {
-    const kinds = PARTS[part]
-    const nextKindIndex = (kinds.indexOf(flower[part]) + 1) % kinds.length
-    setKind(part, kinds[nextKindIndex])
-  }
+  const nextKind = useCallback(
+    part => {
+      const kinds = PARTS[part]
+      const nextKindIndex = (kinds.indexOf(flower[part]) + 1) % kinds.length
+      setKind(part, kinds[nextKindIndex])
+    },
+    [flower, setKind]
+  )
 
   return {
     flower,

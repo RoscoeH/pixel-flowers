@@ -34,13 +34,15 @@ const Flower = ({
   potEnabled = true,
 }) => (
   <>
-    <Stem
-      kind={stem}
-      color={stemColor}
-      color2={stemColor2}
-      transform="translate(8,9)"
-    />
-    {petalsEnabled && (
+    {stem && (
+      <Stem
+        kind={stem}
+        color={stemColor}
+        color2={stemColor2}
+        transform="translate(8,9)"
+      />
+    )}
+    {petals && petalsEnabled && (
       <Petals
         kind={petals}
         color={petalsColor}
@@ -48,8 +50,10 @@ const Flower = ({
         transform="translate(6,1)"
       />
     )}
-    <Pistil kind={pistil} color={pistilColor} transform="translate(10,5)" />
-    {potEnabled && (
+    {pistil && (
+      <Pistil kind={pistil} color={pistilColor} transform="translate(10,5)" />
+    )}
+    {pot && potEnabled && (
       <Pot
         kind={pot}
         color={potColor}
