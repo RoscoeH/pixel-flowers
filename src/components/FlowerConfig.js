@@ -57,19 +57,18 @@ function Sidebar() {
     <div
       ref={dimensionsDef}
       sx={{
-        px: 3,
-        bg: "muted2",
+        ml: 3,
         maxWidth: 11,
         height,
         overflowY: "auto",
-        borderLeft: "default",
-        borderRight: "default",
-        borderColor: "muted",
       }}
     >
       {PART_NAMES.map(partName => (
-        <div key={partName}>
-          <Themed.h3 sx={{ mt: 5, mb: 3 }}>{capitalize(partName)}</Themed.h3>
+        <div
+          key={partName}
+          sx={{ bg: "muted2", p: 4, mb: 3, mr: 3, borderRadius: 5 }}
+        >
+          <Themed.h3 sx={{ mt: 0, mb: 3 }}>{capitalize(partName)}</Themed.h3>
           <ConfigList part={partName} />
         </div>
       ))}

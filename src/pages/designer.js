@@ -33,8 +33,6 @@ function Header({ children }) {
         height: 8,
         maxWidth: [null, 12, null, 14],
         m: "0 auto",
-        borderBottom: ["none", null, null, "default"],
-        borderColor: [null, null, null, "muted"],
       }}
     >
       {children}
@@ -76,9 +74,9 @@ export function Designer() {
             flex: ["unset", null, null, "1 1 auto"],
             alignSelf: [null, null, null, "stretch"],
             bg: [null, null, null, flower.backgroundColor],
-            borderLeft: [null, null, null, "default"],
-            borderBottom: [null, null, null, "default"],
-            borderColor: [null, null, null, "muted"],
+            borderTopLeftRadius: [null, null, null, 6],
+            borderTopRightRadius: [null, null, null, 6],
+            overflow: "hidden",
           }}
         >
           <Flower {...flower} width="100%" height={width} />
