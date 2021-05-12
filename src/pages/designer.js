@@ -4,6 +4,7 @@ import { jsx, Themed } from "theme-ui"
 import { motion } from "framer-motion"
 import useDimensions from "react-use-dimensions"
 import { Global } from "@emotion/react"
+import toImg from "react-svg-to-image"
 
 import useIsClient from "../hooks/useIsClient"
 import {
@@ -17,6 +18,15 @@ import { FlowerSvg as Flower } from "../components/Flower"
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
 import ButtonGroup from "../components/ButtonGroup"
+
+function saveImage() {
+  toImg("svg", "pixel-flower", {
+    scale: 1,
+    format: "png",
+    quality: 1,
+    download: true,
+  })
+}
 
 function HideOnDesktop({ children }) {
   return <div sx={{ display: [null, null, null, "none"] }}>{children}</div>
@@ -82,7 +92,7 @@ export function Designer() {
           >
             Random
           </Button>
-          <Button>Done</Button>
+          <Button onClick={saveImage}>Save</Button>
         </ButtonGroup>
       </Header>
       {isClient && (

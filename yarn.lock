@@ -14650,6 +14650,11 @@ react-sizeme@^3.0.1:
     shallowequal "^1.1.0"
     throttle-debounce "^3.0.1"
 
+react-svg-to-image@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-svg-to-image/-/react-svg-to-image-3.0.0.tgz#90829a2efd0634b3aeb2a21581a4883fe66f7617"
+  integrity sha512-6qV45Sx+2H4GSXlkoMc4msOhwXCLvTgkei8TybzIthBAVVvUrL4E2VuY1T9rduInnXajqkY+X5XKGHYteUlLZQ==
+
 react-syntax-highlighter@^13.5.3:
   version "13.5.3"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-13.5.3.tgz#9712850f883a3e19eb858cf93fad7bb357eea9c6"
