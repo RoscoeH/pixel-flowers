@@ -1,8 +1,11 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
+import { motion } from "framer-motion"
 import useDimensions from "react-use-dimensions"
+import { Global } from "@emotion/react"
 
+import useIsClient from "../hooks/useIsClient"
 import {
   FlowerProvider,
   useFlowerContext,
@@ -34,6 +37,16 @@ function Header({ children }) {
         m: "0 auto",
       }}
     >
+      <Global
+        styles={{
+          html: {
+            overflow: "hidden",
+          },
+          body: {
+            overflow: "hidden",
+          },
+        }}
+      />
       {children}
     </div>
   )
@@ -41,7 +54,9 @@ function Header({ children }) {
 
 function Content({ children }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       sx={{
         display: [null, null, null, "flex"],
         flexDirection: ["column", null, null, "row"],
@@ -52,11 +67,12 @@ function Content({ children }) {
       }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }
 
 export function Designer() {
+  const { isClient, key } = useIsClient()
   const [dimensionsRef, { width }] = useDimensions()
   const { flower } = useFlowerContext()
 
@@ -66,28 +82,30 @@ export function Designer() {
         <Themed.h1 sx={{ m: 0 }}>Design</Themed.h1>
         <Button>Done</Button>
       </Header>
-      <Content>
-        <div
-          ref={dimensionsRef}
-          sx={{
-            flex: ["unset", null, null, "1 1 auto"],
-            alignSelf: [null, null, null, "stretch"],
-            bg: [null, null, null, flower.backgroundColor],
-            borderTopLeftRadius: [null, null, null, 6],
-            borderTopRightRadius: [null, null, null, 6],
-            overflow: "hidden",
-            px: [3, null, null, 0],
-          }}
-        >
-          <Flower {...flower} width="100%" height={width * 0.9} rounded />
-        </div>
-        <HideOnDesktop>
-          <FlowerConfig.Tabbed />
-        </HideOnDesktop>
-        <HideOnMobile>
-          <FlowerConfig.Sidebar />
-        </HideOnMobile>
-      </Content>
+      {isClient && (
+        <Content key={key}>
+          <div
+            ref={dimensionsRef}
+            sx={{
+              flex: ["unset", null, null, "1 1 auto"],
+              alignSelf: [null, null, null, "stretch"],
+              bg: [null, null, null, flower.backgroundColor],
+              borderTopLeftRadius: [null, null, null, 6],
+              borderTopRightRadius: [null, null, null, 6],
+              overflow: "hidden",
+              px: [3, null, null, 0],
+            }}
+          >
+            <Flower {...flower} width="100%" height={width * 0.9} rounded />
+          </div>
+          <HideOnDesktop>
+            <FlowerConfig.Tabbed />
+          </HideOnDesktop>
+          <HideOnMobile>
+            <FlowerConfig.Sidebar />
+          </HideOnMobile>
+        </Content>
+      )}
     </div>
   )
 }
