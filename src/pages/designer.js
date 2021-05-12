@@ -16,6 +16,7 @@ import { FlowerSvg as Flower } from "../components/Flower"
 
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
+import ButtonGroup from "../components/ButtonGroup"
 
 function HideOnDesktop({ children }) {
   return <div sx={{ display: [null, null, null, "none"] }}>{children}</div>
@@ -74,13 +75,18 @@ function Content({ children }) {
 export function Designer() {
   const { isClient, key } = useIsClient()
   const [dimensionsRef, { width }] = useDimensions()
-  const { flower } = useFlowerContext()
+  const { flower, randomFlower } = useFlowerContext()
 
   return (
     <div>
       <Header>
-        <Themed.h1 sx={{ m: 0 }}>Design</Themed.h1>
-        <Button>Done</Button>
+        <Themed.h1 sx={{ m: 0 }}>Designer</Themed.h1>
+        <ButtonGroup>
+          <Button secondary onClick={randomFlower}>
+            Random
+          </Button>
+          <Button>Done</Button>
+        </ButtonGroup>
       </Header>
       {isClient && (
         <Content key={key}>
