@@ -74,38 +74,48 @@ export default function Switcher({ value, values = [], onChange, disabled }) {
         secondary
       />
       {values.length > 0 ? (
-        <select
-          ref={selectRef}
-          sx={{
-            fontFamily: "body",
-            fontSize: 1,
-            outline: "none",
-            bg: "transparent",
-            color: disabled ? "muted" : "text",
-            flex: "1 1 auto",
-            height: 7,
-            textAlign: "center",
-            border: "none",
-            appearance: "none",
-            WebkitAppearance: "none",
-            "&::-ms-expand": {
-              display: "none",
-            },
-            textAlignLast: "center",
-            "&:disabled": {
-              cursor: "not-allowed",
-            },
-          }}
-          value={value}
-          onChange={handleChange}
-          disabled={disabled}
-        >
-          {values.map(v => (
-            <option key={v} value={v}>
-              {capitalize(v)}
-            </option>
-          ))}
-        </select>
+        <div sx={{ position: "relative", flex: "1 1 auto" }}>
+          <select
+            ref={selectRef}
+            sx={{
+              opacity: 0,
+              fontFamily: "body",
+              fontSize: 1,
+              outline: "none",
+              bg: "transparent",
+              color: disabled ? "muted" : "text",
+              height: 7,
+              width: "100%",
+              "&:disabled": {
+                cursor: "not-allowed",
+              },
+            }}
+            value={value}
+            onChange={handleChange}
+            disabled={disabled}
+          >
+            {values.map(v => (
+              <option key={v} value={v}>
+                {capitalize(v)}
+              </option>
+            ))}
+          </select>
+          <div
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute",
+              left: 0,
+              top: 0,
+              right: 0,
+              bottom: 0,
+              pointerEvents: "none",
+            }}
+          >
+            <div>{capitalize(value)}</div>
+          </div>
+        </div>
       ) : (
         <div sx={{ flex: "1 1 auto" }} />
       )}
