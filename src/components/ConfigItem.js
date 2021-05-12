@@ -29,7 +29,7 @@ function ConfigWrapper({ label, disabled, children, onClick }) {
       }}
       onClick={onClick}
     >
-      <label sx={{ color: disabled ? "muted" : "text" }}>{label}</label>
+      <label sx={{ color: disabled ? "muted" : "text", mr: 2 }}>{label}</label>
       {children}
     </div>
   )

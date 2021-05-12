@@ -29,8 +29,7 @@ function Header({ children }) {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        px: 3,
-        height: 8,
+        p: 3,
         maxWidth: [null, 12, null, 14],
         m: "0 auto",
       }}
@@ -79,7 +78,7 @@ export function Designer() {
             overflow: "hidden",
           }}
         >
-          <Flower {...flower} width="100%" height={width} />
+          <Flower {...flower} width="100%" height={width} rounded />
         </div>
         <HideOnDesktop>
           <FlowerConfig.Tabbed />

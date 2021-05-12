@@ -31,6 +31,7 @@ export default {
   styles: {
     root: {
       fontFamily: "body",
+      fontSize: 1,
     },
     h3: {
       fontSize: 1,
