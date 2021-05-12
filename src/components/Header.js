@@ -1,8 +1,12 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Themed } from "theme-ui"
+import { jsx, Themed, useThemeUI } from "theme-ui"
+
+import Logo from "../components/Logo"
 
 export default function Header({ title }) {
+  const { theme } = useThemeUI()
+  const { sizes } = theme
   return (
     <div
       sx={{
@@ -13,6 +17,7 @@ export default function Header({ title }) {
         height: 8,
       }}
     >
+      <Logo size={sizes[6]} sx={{ mr: 3 }} />
       <Themed.h1 sx={{ m: 0 }}>{title}</Themed.h1>
     </div>
   )
