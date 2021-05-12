@@ -39,14 +39,7 @@ function Header({ children }) {
       }}
     >
       <Global
-        styles={{
-          html: {
-            overflow: "hidden",
-          },
-          body: {
-            overflow: "hidden",
-          },
-        }}
+        styles={{ html: { overflow: "hidden" }, body: { overflow: "hidden" } }}
       />
       {children}
     </div>
@@ -82,7 +75,11 @@ export function Designer() {
       <Header>
         <Themed.h1 sx={{ m: 0 }}>Designer</Themed.h1>
         <ButtonGroup>
-          <Button secondary onClick={randomFlower}>
+          <Button
+            sx={{ display: ["none", "inline-flex"] }}
+            secondary
+            onClick={randomFlower}
+          >
             Random
           </Button>
           <Button>Done</Button>

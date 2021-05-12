@@ -61,8 +61,6 @@ export default function Tabs({ selected, onChange, children }) {
         sx={{
           display: "flex",
           justifyContent: "center",
-          borderBottom: ({ space }) => `${space[3]}px solid`,
-          borderColor: "muted2",
           "& > *:not(:last-child)": {
             mr: 2,
           },
@@ -78,11 +76,17 @@ export default function Tabs({ selected, onChange, children }) {
           </TabButton>
         ))}
       </div>
-      <div ref={dimensionsRef}>
-        <div
-          ref={scrollRef}
-          sx={{ height, overflowY: "auto", bg: "muted2", px: 3, pb: 3 }}
-        >
+      <div
+        ref={dimensionsRef}
+        sx={{
+          bg: "muted2",
+          overflow: "hidden",
+          borderTopLeftRadius: [null, 4],
+          borderTopRightRadius: [null, 4],
+          pt: 3,
+        }}
+      >
+        <div ref={scrollRef} sx={{ height, overflowY: "auto", px: 3, pb: 3 }}>
           {selectedTab}
         </div>
       </div>

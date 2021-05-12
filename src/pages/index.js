@@ -23,7 +23,7 @@ const IndexPage = () => (
         <Themed.p>
           66 flower parts 🌱
           <br />
-          16 million colors 🌈
+          Millions of colors 🌈
           <br />
           <strong>Billions of combinations ✨</strong>
         </Themed.p>

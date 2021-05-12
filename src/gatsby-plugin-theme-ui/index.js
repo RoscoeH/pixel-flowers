@@ -32,6 +32,10 @@ export default {
     root: {
       fontFamily: "body",
       fontSize: 1,
+      lineHeight: "150%",
+    },
+    h1: {
+      fontSize: 4,
     },
     h3: {
       fontSize: 1,

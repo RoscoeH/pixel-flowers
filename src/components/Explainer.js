@@ -85,7 +85,7 @@ export default function Explainer() {
     if (PARTS.includes(stepName) && !flower[stepName]) {
       executeStep()
     }
-    const interval = setInterval(executeStep, 200)
+    const interval = setInterval(executeStep, 100)
 
     return () => clearInterval(interval)
   }, [step, flower, setFlower, nextKind])
