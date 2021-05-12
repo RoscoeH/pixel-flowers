@@ -20,6 +20,7 @@ export default {
     text: "#2e1c43",
     background: "#fff",
     primary: "#9b5de5",
+    secondary: "#ffff00",
     muted: "#bea6da",
     muted2: "#f9f4ff",
     hover: "#6f29c2",
