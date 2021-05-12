@@ -76,9 +76,10 @@ export function Designer() {
             borderTopLeftRadius: [null, null, null, 6],
             borderTopRightRadius: [null, null, null, 6],
             overflow: "hidden",
+            px: [3, null, null, 0],
           }}
         >
-          <Flower {...flower} width="100%" height={width} rounded />
+          <Flower {...flower} width="100%" height={width * 0.9} rounded />
         </div>
         <HideOnDesktop>
           <FlowerConfig.Tabbed />

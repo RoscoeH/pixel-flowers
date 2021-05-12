@@ -13,6 +13,12 @@ import { capitalize } from "../core/utils"
 const PART_NAMES = ["petals", "pistil", "stem", "pot"]
 const DEFAULT_TAB = PART_NAMES[0]
 
+const HIDE_SCROLLBAR_STYLES = {
+  "::-webkit-scrollbar": { display: "none" }, // Chrome, Edge, Safari, Opera
+  "-ms-overflow-style": "none", // IE
+  "scrollbar-width": "none", // Firefox
+}
+
 function Tabbed() {
   const [selectedTab, setSelectedTab] = useState(DEFAULT_TAB)
   const selectTab = tab => () => setSelectedTab(tab)
@@ -61,13 +67,11 @@ function Sidebar() {
         maxWidth: 11,
         height,
         overflowY: "auto",
+        ...HIDE_SCROLLBAR_STYLES,
       }}
     >
       {PART_NAMES.map(partName => (
-        <div
-          key={partName}
-          sx={{ bg: "muted2", p: 4, mb: 3, mr: 3, borderRadius: 5 }}
-        >
+        <div key={partName} sx={{ bg: "muted2", p: 4, mb: 3, borderRadius: 5 }}>
           <Themed.h3 sx={{ mt: 0, mb: 3 }}>{capitalize(partName)}</Themed.h3>
           <ConfigList part={partName} />
         </div>
