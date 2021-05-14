@@ -46,7 +46,18 @@ const theme = {
     p: {
       my: 4,
     },
-    a: { color: "primary" },
+    a: {
+      color: "primary",
+      textDecoration: "none",
+      "&:hover": {
+        borderBottom: "2px solid",
+        borderColor: "primary",
+      },
+      "&:visited": {
+        color: "muted",
+        borderColor: "muted",
+      },
+    },
   },
 }
 
