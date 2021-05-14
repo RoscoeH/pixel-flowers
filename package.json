@@ -1,70 +1,50 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "pixel-flowers",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "private": true,
   "dependencies": {
-    "@ctrl/tinycolor": "^3.4.0",
-    "@iconify/icons-mdi": "^1.1.15",
-    "@iconify/react": "^1.1.4",
-    "@n8tb1t/use-scroll-position": "^2.0.3",
-    "framer-motion": "^4.1.11",
-    "gatsby": "^2.23.12",
-    "gatsby-image": "^2.4.9",
-    "gatsby-plugin-manifest": "^2.4.14",
-    "gatsby-plugin-netlify": "^2.3.11",
-    "gatsby-plugin-offline": "^3.2.13",
-    "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-sharp": "^2.6.14",
-    "gatsby-plugin-theme-ui": "^0.3.0",
-    "gatsby-source-filesystem": "^2.3.14",
-    "gatsby-transformer-sharp": "^2.5.7",
-    "lodash": "^4.17.19",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-bytesize-icons": "^0.12.2",
-    "react-div-100vh": "^0.6.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0",
-    "react-infinite-scroll-component": "^5.0.5",
-    "react-svg-to-image": "^3.0.0",
-    "react-use-dimensions": "^1.2.1",
-    "theme-ui": "^0.7.3",
-    "typeface-work-sans": "^1.1.13",
-    "url-base64-node": "^1.0.5"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
-  "devDependencies": {
-    "@babel/core": "^7.13.16",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/react": "^6.2.9",
-    "babel-loader": "^8.2.2",
-    "chromatic": "^5.8.0",
-    "prettier": "2.0.5"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "docz": "docz dev",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

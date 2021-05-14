@@ -16,7 +16,11 @@ const STEPS = [
     name: "pistil",
     description: (
       <span>
-        Then, grow a pistil <small>(no, not the handgun)</small>
+        Then, grow a pistil...
+        <small>
+          <br />
+          (no, not the handgun)
+        </small>
       </span>
     ),
   },
@@ -104,7 +108,7 @@ export default function Explainer() {
         m: "0 auto",
       }}
     >
-      <Themed.p sx={{ textAlign: "center" }}>
+      <Themed.p sx={{ textAlign: "center", maxHeight: 5 }}>
         {STEPS[step].description}
       </Themed.p>
       <Flower {...flowerProps} width="100%" rounded />

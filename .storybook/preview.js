@@ -1,6 +1,6 @@
-import React from "react"
-import { ThemeProvider } from "theme-ui"
-import theme from "../src/gatsby-plugin-theme-ui"
+import { ThemeProvider } from "theme-ui";
+
+import theme from "../src/core/theme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,8 +10,8 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
 
 export const decorators = [
-  Story => <ThemeProvider theme={theme}>{Story()}</ThemeProvider>,
-]
+  (Story) => <ThemeProvider theme={theme}>{Story()}</ThemeProvider>,
+];
