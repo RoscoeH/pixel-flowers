@@ -21,11 +21,11 @@ export default function RandomFlowers({ count = 60, size = 96 }) {
     >
       {range(count).map(i =>
         isClient ? (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <RandomFlower key={i} size={size} />
           </motion.div>
         ) : (
-          <div sx={{ width: size, height: size }} />
+          <div key={i} sx={{ width: size, height: size }} />
         )
       )}
     </div>

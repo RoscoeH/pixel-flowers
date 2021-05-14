@@ -7,19 +7,20 @@ import { useFlower, pickRandomColors } from "../hooks/useFlower"
 import { FlowerSvg as Flower } from "./Flower"
 import Button from "./Button"
 import { KINDS as STEMS } from "../paths/stems"
+import Sapling from "./Sapling"
 
 const PARTS = ["stem", "pistil", "petals", "pot"]
 const STEPS = [
+  {
+    name: "intro",
+    description: 'Click "Start" below for an interactive explaination.',
+  },
   { name: "stem", description: "Start by sprouting a stem..." },
   {
     name: "pistil",
     description: (
       <span>
-        Then, grow a pistil...
-        <small>
-          <br />
-          (no, not the handgun)
-        </small>
+        Then, grow a pistil... <small>(no, not the handgun)</small>
       </span>
     ),
   },
@@ -41,6 +42,7 @@ function Pagination({ total, index }) {
     <div sx={{ display: "flex", justifyContent: "center", py: 3 }}>
       {range(total).map(i => (
         <div
+          key={i}
           sx={{
             bg: i === index ? "muted" : "muted2",
             width: 3,
@@ -75,6 +77,7 @@ export default function Explainer() {
     const stepName = STEP_NAMES[step]
     const executeStep = () => {
       switch (stepName) {
+        case "intro":
         case "done":
           break
         case "color":
@@ -100,20 +103,29 @@ export default function Explainer() {
         flexDirection: "column",
         alignItems: "stretch",
         maxWidth: 12,
-        p: 3,
-        border: "default",
-        borderColor: "muted",
-        borderRadius: 4,
         m: "0 auto",
       }}
     >
-      <Themed.p sx={{ textAlign: "center", maxHeight: 5 }}>
-        {STEPS[step].description}
+      <Themed.p sx={{ textAlign: "center", maxHeight: 5, mt: 0 }}>
+        {STEPS[step].description || " "}
       </Themed.p>
-      <Flower {...flowerProps} width="100%" rounded />
+      <div
+        sx={{
+          border: step < 5 ? "default" : "none",
+          borderColor: "muted",
+          borderRadius: 3,
+        }}
+        onClick={step < STEP_NAMES.length - 1 ? nextStep : restart}
+      >
+        {step === 0 ? (
+          <Sapling />
+        ) : (
+          <Flower {...flowerProps} width="100%" rounded />
+        )}
+      </div>
       <Pagination index={step} total={STEP_NAMES.length} />
       {step < STEP_NAMES.length - 1 ? (
-        <Button onClick={nextStep}>Next</Button>
+        <Button onClick={nextStep}>{step === 0 ? "Start" : "Next"}</Button>
       ) : (
         <Button onClick={restart}>Restart?</Button>
       )}
