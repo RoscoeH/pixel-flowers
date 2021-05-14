@@ -3,7 +3,7 @@ import { useMemo } from "react"
 import { TinyColor } from "@ctrl/tinycolor"
 
 export default function ColorInput({ color, onChange, disabled }) {
-  const tinyColor = useMemo(() => new TinyColor(color))
+  const tinyColor = useMemo(() => new TinyColor(color), [color])
   const isLight = useMemo(() => tinyColor.isLight(), [tinyColor])
   const hexColor = useMemo(() => tinyColor.toHexString().toUpperCase(), [
     tinyColor,

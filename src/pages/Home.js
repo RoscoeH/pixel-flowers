@@ -4,7 +4,6 @@ import { jsx, Themed, Link } from "theme-ui"
 import { useHistory } from "react-router-dom"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import EvolvingFlower from "../components/EvolvingFlower"
 import Explainer from "../components/Explainer"
 import RandomFlowers from "../components/RandomFlowers"

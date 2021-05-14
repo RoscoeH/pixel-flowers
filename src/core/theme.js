@@ -1,6 +1,6 @@
 import "typeface-work-sans"
 
-export default {
+const theme = {
   breakpoints: ["24em", "40em", "48em", "56em"],
   fonts: {
     body: '"Work Sans", sans-serif',
@@ -49,3 +49,5 @@ export default {
     a: { color: "primary" },
   },
 }
+
+export default theme
