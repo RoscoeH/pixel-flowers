@@ -1,4 +1,3 @@
-import { defaultTo } from "lodash"
 import React from "react"
 import ConfigItem from "./ConfigItem"
 

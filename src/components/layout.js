@@ -1,6 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, Themed, Link } from "theme-ui"
+/** @jsxImportSource theme-ui */
+import { Themed, Link } from "theme-ui"
 import PropTypes from "prop-types"
 
 import Header from "./Header"

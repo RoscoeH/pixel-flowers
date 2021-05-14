@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-
+/** @jsxImportSource theme-ui */
 import { useFlower, pickRandomFlower } from "../hooks/useFlower"
 import { FlowerSvg as Flower } from "./Flower"
 

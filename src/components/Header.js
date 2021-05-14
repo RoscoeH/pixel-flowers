@@ -1,6 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, Themed, useThemeUI } from "theme-ui"
+/** @jsxImportSource theme-ui */
+import { Themed, useThemeUI } from "theme-ui"
 
 import Logo from "../components/Logo"
 

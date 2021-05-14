@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { useEffect, useState } from "react"
 import { use100vh } from "react-div-100vh"
 import useDimensions from "react-use-dimensions"

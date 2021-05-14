@@ -1,6 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, useThemeUI } from "theme-ui"
+/** @jsxImportSource theme-ui */
+import { useThemeUI } from "theme-ui"
 import { Icon as IconifyIcon, InlineIcon } from "@iconify/react"
 import chevronLeft from "@iconify/icons-mdi/chevron-left"
 import chevronRight from "@iconify/icons-mdi/chevron-right"

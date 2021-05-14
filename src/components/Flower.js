@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import React, { useEffect } from "react"
+/** @jsxImportSource theme-ui */
+import { useEffect } from "react"
 import PropTypes from "prop-types"
 import useDimensions from "react-use-dimensions"
 

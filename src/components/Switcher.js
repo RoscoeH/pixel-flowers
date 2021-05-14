@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import { useState, useRef } from "react"
+/** @jsxImportSource theme-ui */
+import { useRef } from "react"
 
 import Button from "./Button"
 import { capitalize } from "../core/utils"

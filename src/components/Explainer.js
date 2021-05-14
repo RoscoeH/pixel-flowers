@@ -1,6 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, Themed } from "theme-ui"
+/** @jsxImportSource theme-ui */
+import { Themed } from "theme-ui"
 import { useEffect, useState } from "react"
 
 import { range } from "../core/utils"

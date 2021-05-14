@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-
+/** @jsxImportSource theme-ui */
 import ConfigItem from "./ConfigItem"
 import { usePart, PARTS } from "../hooks/useFlower"
 
