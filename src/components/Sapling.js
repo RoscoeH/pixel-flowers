@@ -2,7 +2,11 @@
 
 export default function Sapling() {
   return (
-    <svg viewBox="0 0 31 31" sx={{ display: "block" }}>
+    <svg
+      sx={{ display: "block" }}
+      viewBox="0 0 31 31"
+      shapeRendering="crispEdges"
+    >
       <g fill="#b97b57">
         <path d="M14 14 h3v1h1v2h-1v1h-3v-1h-1v-2h1" />
         <rect x="11" y="18" width="1" height="1" />
