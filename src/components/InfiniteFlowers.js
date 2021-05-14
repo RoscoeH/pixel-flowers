@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { useState, useEffect } from "react"
 import { navigate } from "@reach/router"
 import InfiniteScroll from "react-infinite-scroll-component"

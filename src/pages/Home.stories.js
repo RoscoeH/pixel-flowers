@@ -1,11 +1,11 @@
 import React from "react"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
-import Designer from "./designer"
+import Home from "./Home"
 
 export default {
-  title: "Pages/Designer",
-  component: Designer,
+  title: "Pages/Home",
+  component: Home,
   parameters: {
     layout: "fullscreen",
     viewport: {
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-const Template = args => <Designer {...args} />
+const Template = args => <Home {...args} />
 
 export const Mobile = Template.bind({})
 

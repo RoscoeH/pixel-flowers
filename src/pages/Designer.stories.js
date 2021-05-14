@@ -1,11 +1,11 @@
 import React from "react"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
-import Index from "./index"
+import Designer from "./Designer"
 
 export default {
-  title: "Pages/Index",
-  component: Index,
+  title: "Pages/Designer",
+  component: Designer,
   parameters: {
     layout: "fullscreen",
     viewport: {
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-const Template = args => <Index {...args} />
+const Template = args => <Designer {...args} />
 
 export const Mobile = Template.bind({})
 
