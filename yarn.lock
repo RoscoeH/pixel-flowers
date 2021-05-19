@@ -2879,6 +2879,14 @@
     "@theme-ui/css" "0.8.4"
     deepmerge "^4.2.2"
 
+"@theme-ui/color@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.8.4.tgz#8582720614b52b441a49a61909a2111a83b847d7"
+  integrity sha512-VL4OZIN4MFO6RMbG5e68AB4sPO6a44WeFQshreEB5DytYL5z3NDolsmW15d4ofxkzRp9+F/tNN5BbgaWUaM7vw==
+  dependencies:
+    "@theme-ui/css" "0.8.4"
+    polished "^4.0.5"
+
 "@theme-ui/components@0.8.4":
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.8.4.tgz#a362d0625f6a6efacc35a2db29fb6c2368257fd2"

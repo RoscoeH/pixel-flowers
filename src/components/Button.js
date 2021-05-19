@@ -1,6 +1,12 @@
 /** @jsxImportSource theme-ui */
 import Icon from "./Icon"
+import { lighten, darken } from "@theme-ui/color"
+import { get } from "lodash"
 
+export const TYPES = {
+  primary: "primary",
+  secondary: "secondary",
+}
 const commonStyles = icon => ({
   display: "inline-flex",
   justifyContent: "center",
@@ -16,67 +22,67 @@ const commonStyles = icon => ({
     cursor: "not-allowed",
   },
 })
-const STYLES = {
-  primary: {
-    bg: "primary",
-    color: "light",
-    border: "none",
-  },
-  secondary: {
-    bg: "light",
-    color: "primary",
-    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.muted}`,
-  },
-}
-const HOVER_STYLES = {
-  primary: {
-    bg: "hover",
-    color: "light",
-    boxShadow: "none",
-  },
-  secondary: {
-    bg: "light",
-    color: "hover",
-    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.primary}`,
-  },
-}
-const ACTIVE_STYLES = {
-  primary: {
-    bg: "dark",
-    color: "light",
-    boxShadow: "none",
-  },
-  secondary: {
-    bg: "light",
-    color: "dark",
-    boxShadow: ({ colors }) => `inset 0 0 0 1px ${colors.dark}`,
-  },
-}
-export const TYPES = Object.keys(STYLES).reduce(
-  (prev, curr) => ({ ...prev, [curr]: curr }),
-  {}
-)
+const colorStyles = (type, color) =>
+  type === TYPES.primary
+    ? {
+        bg: color || "primary",
+        color: "light",
+        border: "none",
+      }
+    : {
+        bg: "light",
+        color: color || "primary",
+        boxShadow: t =>
+          `inset 0 0 0 1px ${color ? lighten(color, 0.2)(t) : t.colors.muted}`,
+      }
+
+const hoverStyles = (type, color) =>
+  type === TYPES.primary
+    ? {
+        bg: color ? darken(color, 0.2) : "hover",
+        color: "light",
+        boxShadow: "none",
+      }
+    : {
+        bg: "light",
+        color: color ? darken(color, 0.2) : "hover",
+        boxShadow: ({ colors }) =>
+          `inset 0 0 0 1px ${color ? get(colors, color) : colors.primary}`,
+      }
+
+const activeStyles = (type, color) =>
+  type === TYPES.primary
+    ? {
+        bg: color ? darken(color, 0.4) : "dark",
+        color: "light",
+        boxShadow: "none",
+      }
+    : {
+        bg: "light",
+        color: color ? darken(color, 0.4) : "dark",
+        boxShadow: t =>
+          `inset 0 0 0 1px ${color ? darken(color, 0.4)(t) : t.colors.dark}`,
+      }
 
 export default function Button({
   secondary,
   icon,
   expand,
+  color,
   children,
   sx,
   ...props
 }) {
   const type = secondary ? TYPES.secondary : TYPES.primary
+  const styles = {
+    ...commonStyles(icon),
+    ...colorStyles(type, color),
+    "&:hover": hoverStyles(type, color),
+    "&:active": activeStyles(type, color),
+    ...sx,
+  }
   return (
-    <button
-      sx={{
-        ...commonStyles(icon),
-        ...STYLES[type],
-        "&:hover": HOVER_STYLES[type],
-        "&:active": ACTIVE_STYLES[type],
-        ...sx,
-      }}
-      {...props}
-    >
+    <button sx={styles} {...props}>
       {icon && <Icon icon={icon} sx={children && { mr: 2, ml: -2 }} />}
       {children}
     </button>

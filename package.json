@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@theme-ui/color": "^0.8.4",
     "framer-motion": "^4.1.16",
     "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
@@ -61,10 +62,13 @@
           "**/*.stories.*"
         ],
         "rules": {
-          "import/no-anonymous-default-export": "off"        }
+          "import/no-anonymous-default-export": "off"
+        }
       },
       {
-        "files": ["**/*.js"],
+        "files": [
+          "**/*.js"
+        ],
         "rules": {
           "react/jsx-pascal-case": "off"
         }

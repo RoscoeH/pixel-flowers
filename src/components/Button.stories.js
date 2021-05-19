@@ -19,6 +19,16 @@ Primary.args = { children: "Button" }
 export const Secondary = Template.bind({})
 Secondary.args = { secondary: true, children: "Secondary" }
 
+export const ColorPrimary = Template.bind({})
+ColorPrimary.args = { children: "Color", color: "social.facebook" }
+
+export const ColorSecondary = Template.bind({})
+ColorSecondary.args = {
+  secondary: true,
+  children: "Color",
+  color: "social.facebook",
+}
+
 export const Icon = Template.bind({})
 Icon.args = { icon: "chevronRight" }
 
