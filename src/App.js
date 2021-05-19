@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Designer from "./pages/Designer"
 import Flower from "./pages/Flower"
 import Garden from "./pages/Garden"
+import NotFoundPage from "./pages/NotFoundPage"
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route exact path="/garden">
               <Garden />
+            </Route>
+            <Route path="*">
+              <NotFoundPage />
             </Route>
           </Switch>
         </Router>
