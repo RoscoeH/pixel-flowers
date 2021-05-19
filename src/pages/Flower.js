@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
-import { useParams } from "react-router-dom"
+import { useHistory, useLocation, useParams } from "react-router-dom"
 import toImg from "react-svg-to-image"
 
 import { useFlower, pickRandomFlower } from "../hooks/useFlower"
@@ -36,22 +36,26 @@ function Buttons({ children }) {
 }
 
 function Hidden({ children }) {
-  return <div sx={{ height: 0 }}>{children}</div>
+  return <div sx={{ height: 0, opacity: 0 }}>{children}</div>
 }
 
 export default function FlowerPage() {
   const { id } = useParams()
+  const history = useHistory()
+  const { pathname } = useLocation()
   const initialFlower = id ? stringToFlower(urlDecode(id)) : pickRandomFlower()
-  const { flower } = useFlower(initialFlower)
+  const { flower, url } = useFlower(initialFlower)
 
-  const fbLink =
-    "https://www.facebook.com/sharer/sharer.php?u=https%3A//pixelflowers.roscoe.dev/flower/1234"
+  const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=https%3A//pixelflowers.roscoe.dev${pathname}`
 
   const copyLink = () =>
     window.isSecureContext
       ? navigator.clipboard.writeText(window.location.href)
       : console.error("Cannot copy to clipboard, insecure context")
+
   const savePng = () => downloadImage("png")
+
+  const customize = () => history.push(`/designer/${url}`)
 
   return (
     <Layout>
@@ -67,13 +71,13 @@ export default function FlowerPage() {
           </Button>
         </ButtonGroup>
         <ButtonGroup expand>
-          <Button icon="facebook" color="social.facebook" href={fbLink}>
+          <Button icon="facebook" color="social.facebook" href={facebookLink}>
             Share to Facebook
           </Button>
         </ButtonGroup>
         <ButtonGroup expand>
-          <Button icon="brush" secondary>
-            Customise
+          <Button icon="brush" secondary onClick={customize}>
+            Customize
           </Button>
         </ButtonGroup>
       </Buttons>

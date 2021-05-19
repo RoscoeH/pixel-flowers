@@ -1,25 +1,23 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
-import { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { motion } from "framer-motion"
 import useDimensions from "react-use-dimensions"
 import { Global } from "@emotion/react"
 
-import useIsClient from "../hooks/useIsClient"
+import { stringToFlower, urlDecode } from "../core/utils"
 import {
   FlowerProvider,
   useFlowerContext,
   useFlower,
   pickRandomFlower,
 } from "../hooks/useFlower"
+import useIsClient from "../hooks/useIsClient"
 import { FlowerSvg as Flower } from "../components/Flower"
-
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
 import ButtonGroup from "../components/ButtonGroup"
-import { flowerToString, urlEncode } from "../core/utils"
 
 function HideOnDesktop({ children }) {
   return <div sx={{ display: [null, null, null, "none"] }}>{children}</div>
@@ -70,15 +68,9 @@ function Content({ children }) {
 
 export function Designer() {
   const history = useHistory()
-  const [url, setUrl] = useState()
   const { isClient, key } = useIsClient()
   const [dimensionsRef, { width }] = useDimensions()
-  const { flower, randomFlower } = useFlowerContext()
-
-  useEffect(() => {
-    const flowerString = flowerToString(flower)
-    setUrl(urlEncode(flowerString))
-  }, [flower])
+  const { flower, randomFlower, url } = useFlowerContext()
 
   return (
     <div>
@@ -124,7 +116,9 @@ export function Designer() {
 }
 
 export default function DesignerWrapper() {
-  const { flower } = useFlower(pickRandomFlower())
+  const { id } = useParams()
+  const initialFlower = id ? stringToFlower(urlDecode(id)) : pickRandomFlower()
+  const { flower } = useFlower(initialFlower)
   return (
     <FlowerProvider flower={flower}>
       <Designer />

@@ -1,7 +1,14 @@
-import React, { useState, useCallback, useContext, createContext } from "react"
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+  createContext,
+} from "react"
 import random from "lodash/random"
 import { random as randomColor } from "@ctrl/tinycolor"
 
+import { urlEncode, flowerToString } from "../core/utils"
 import { KINDS as STEMS } from "../paths/stems"
 import { KINDS as PETALS } from "../paths/petals"
 import { KINDS as PISTILS } from "../paths/pistils"
@@ -79,6 +86,12 @@ export function pickRandomFlower() {
 
 export function useFlower(init) {
   const [flower, setFlower] = useState(init)
+  const [url, setUrl] = useState()
+
+  useEffect(() => {
+    const flowerString = flowerToString(flower)
+    setUrl(urlEncode(flowerString))
+  }, [flower])
 
   const setKind = useCallback(
     (part, kind) => {
@@ -135,6 +148,7 @@ export function useFlower(init) {
     nextKind,
     randomFlower,
     mutateFlower,
+    url,
   }
 }
 
