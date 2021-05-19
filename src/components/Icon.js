@@ -6,6 +6,7 @@ import chevronRight from "@iconify/icons-mdi/chevron-right"
 import chevronUp from "@iconify/icons-mdi/chevron-up"
 import download from "@iconify/icons-mdi/download"
 import facebook from "@iconify/icons-mdi/facebook"
+import brush from "@iconify/icons-mdi/brush"
 
 const ICONS = {
   chevronLeft,
@@ -13,6 +14,7 @@ const ICONS = {
   chevronUp,
   download,
   facebook,
+  brush,
 }
 const DEFAULT_ICON = "chevronLeft"
 
