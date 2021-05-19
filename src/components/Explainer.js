@@ -106,7 +106,7 @@ export default function Explainer() {
         m: "0 auto",
       }}
     >
-      <Themed.p sx={{ textAlign: "center", maxHeight: 5, mt: 0 }}>
+      <Themed.p sx={{ textAlign: "center", mt: 0 }}>
         {STEPS[step].description || " "}
       </Themed.p>
       <div
