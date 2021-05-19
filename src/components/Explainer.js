@@ -69,8 +69,8 @@ export default function Explainer() {
   }
 
   const flowerProps = {
-    backgroundColor: "transparent",
     ...flower,
+    backgroundColor: "white",
   }
 
   useEffect(() => {

@@ -20,7 +20,7 @@ const Layout = ({ hideHeader, hideFooter, children }) => {
       <SEO />
       {!hideHeader && <Header />}
       <main sx={{ flexGrow: 1 }}>
-        <div sx={{ maxWidth: 14, px: 3, margin: "0 auto" }}>{children}</div>
+        <div sx={{ maxWidth: 14, margin: "0 auto" }}>{children}</div>
       </main>
       {!hideFooter && (
         <footer

@@ -1,4 +1,4 @@
-import React from "react"
+/** @jsxImportSource theme-ui */
 import PropTypes from "prop-types"
 
 import PETALS from "../paths/petals"
@@ -9,16 +9,16 @@ const RES = 20
 export const KINDS = Object.keys(PETALS)
 
 const Petals = ({
-  color = "pink",
-  color2 = "hotpink",
-  kind = "clover",
+  color = "primary",
+  color2 = "muted",
+  kind = "daffodil",
   ...props
 }) => {
   const [primaryPetals, secondaryPetals] = PETALS[kind] || PETALS[KINDS[0]]
   return (
     <g {...props}>
-      <g fill={color}>{primaryPetals}</g>
-      {secondaryPetals && <g fill={color2}>{secondaryPetals}</g>}
+      <g sx={{ fill: color }}>{primaryPetals}</g>
+      {secondaryPetals && <g sx={{ fill: color2 }}>{secondaryPetals}</g>}
     </g>
   )
 }

@@ -1,7 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, Themed, Link } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { useHistory, Link as RouterLink } from "react-router-dom"
+import { Themed, Link } from "theme-ui"
 
 import Layout from "../components/Layout"
 import EvolvingFlower from "../components/EvolvingFlower"
@@ -9,15 +8,18 @@ import Explainer from "../components/Explainer"
 import RandomFlowers from "../components/RandomFlowers"
 import Button from "../components/Button"
 
-function Section({ children }) {
-  return <div sx={{ textAlign: "center", mb: 9 }}>{children}</div>
+function Section({ bg, children }) {
+  return (
+    <div sx={{ textAlign: "center", px: 3, py: 6, borderRadius: 5, bg }}>
+      {children}
+    </div>
+  )
 }
 
 const Home = () => {
   const history = useHistory()
   return (
     <Layout>
-      {/* <SEO title="Home" /> */}
       <Section>
         <EvolvingFlower />
         <Themed.p>
@@ -31,7 +33,7 @@ const Home = () => {
           Design Your Own
         </Button>
       </Section>
-      <Section>
+      <Section bg="muted2">
         <Themed.h2>How does it work?</Themed.h2>
         <Explainer />
       </Section>

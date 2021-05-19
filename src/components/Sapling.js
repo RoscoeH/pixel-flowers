@@ -3,7 +3,7 @@
 export default function Sapling() {
   return (
     <svg
-      sx={{ display: "block" }}
+      sx={{ display: "block", bg: "white", borderRadius: 3 }}
       viewBox="0 0 31 31"
       shapeRendering="crispEdges"
     >

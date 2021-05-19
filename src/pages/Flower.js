@@ -62,31 +62,33 @@ export default function FlowerPage() {
       <Helmet>
         <title>Share &amp; Save</title>
       </Helmet>
-      <Flower {...flower} width="100%" height="100%" rounded />
-      <Themed.h3 sx={{ mb: 0, textAlign: "center" }}>Save or Share</Themed.h3>
-      <Buttons>
-        <ButtonGroup expand>
-          <Button icon="link" onClick={copyLink}>
-            Copy Link
-          </Button>
-          <Button icon="download" onClick={savePng}>
-            Save PNG
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup expand>
-          <Button icon="facebook" color="social.facebook" href={facebookLink}>
-            Share to Facebook
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup expand>
-          <Button icon="brush" secondary onClick={customize}>
-            Customize
-          </Button>
-        </ButtonGroup>
-      </Buttons>
-      <Hidden>
-        <Flower id="download" {...flower} width="32" height="32" />
-      </Hidden>
+      <div sx={{ px: 3, pb: 3 }}>
+        <Flower {...flower} width="100%" height="100%" rounded />
+        <Themed.h3 sx={{ mb: 0, textAlign: "center" }}>Save or Share</Themed.h3>
+        <Buttons>
+          <ButtonGroup expand>
+            <Button icon="link" onClick={copyLink}>
+              Copy Link
+            </Button>
+            <Button icon="download" onClick={savePng}>
+              Save PNG
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup expand>
+            <Button icon="facebook" color="social.facebook" href={facebookLink}>
+              Share to Facebook
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup expand>
+            <Button icon="brush" secondary onClick={customize}>
+              Customize
+            </Button>
+          </ButtonGroup>
+        </Buttons>
+        <Hidden>
+          <Flower id="download" {...flower} width="32" height="32" />
+        </Hidden>
+      </div>
     </Layout>
   )
 }
