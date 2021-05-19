@@ -1,24 +1,37 @@
 /** @jsxImportSource theme-ui */
 import { Themed, Link } from "theme-ui"
 import PropTypes from "prop-types"
+import { use100vh } from "react-div-100vh"
 
 import Header from "./Header"
 
 const Layout = ({ children }) => {
+  const height = use100vh()
   return (
-    <div>
+    <div
+      sx={{
+        minHeight: height,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+      }}
+    >
       <Header />
       <main
         sx={{
-          margin: `0 auto`,
-          maxWidth: 14,
-          px: 3,
+          // margin: `0 auto`,
+          // maxWidth: 14,
+          // px: 3,
+          flexGrow: 1,
         }}
       >
-        {children}
+        <div sx={{ maxWidth: 14, px: 3, margin: "0 auto" }}>{children}</div>
       </main>
       <footer
         sx={{
+          // position: "absolute",
+          // bottom: 0,
+          width: "100%",
           bg: "muted2",
           fontSize: 0,
           textAlign: "center",

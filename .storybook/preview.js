@@ -1,4 +1,5 @@
 import { ThemeProvider } from "theme-ui";
+import { MemoryRouter } from "react-router-dom";
 
 import theme from "../src/core/theme";
 
@@ -14,4 +15,5 @@ export const parameters = {
 
 export const decorators = [
   (Story) => <ThemeProvider theme={theme}>{Story()}</ThemeProvider>,
+  (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
 ];

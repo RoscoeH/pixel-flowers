@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import theme from "./core/theme"
 import Home from "./pages/Home"
 import Designer from "./pages/Designer"
+import Flower from "./pages/Flower"
 import Garden from "./pages/Garden"
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route exact path="/designer">
             <Designer />
+          </Route>
+          <Route exact path="/flower">
+            <Flower />
           </Route>
           <Route exact path="/garden">
             <Garden />

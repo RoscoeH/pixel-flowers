@@ -27,8 +27,8 @@ export default function FlowerPage() {
   const { flower } = useFlower(pickRandomFlower())
   return (
     <Layout>
-      {/* <Themed.h2>Save or Share</Themed.h2> */}
       <Flower {...flower} width="100%" height="100%" rounded />
+      <Themed.h3 sx={{ mb: 0, textAlign: "center" }}>Save or Share</Themed.h3>
       <Buttons>
         <ButtonGroup expand>
           <Button icon="download">Save SVG</Button>

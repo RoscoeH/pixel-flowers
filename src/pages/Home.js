@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed, Link } from "theme-ui"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link as RouterLink } from "react-router-dom"
 
 import Layout from "../components/layout"
 import EvolvingFlower from "../components/EvolvingFlower"
@@ -41,7 +41,10 @@ const Home = () => {
         <RandomFlowers />
         <Themed.p>
           Want to see more? Check out the{" "}
-          <Link href="/garden">endless garden</Link>.
+          <Link href="/garden" to="/garden" as={RouterLink}>
+            endless garden
+          </Link>
+          .
         </Themed.p>
       </Section>
     </Layout>
