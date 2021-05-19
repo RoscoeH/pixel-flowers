@@ -86,7 +86,7 @@ export default function Button({
     ...sx,
   }
   const content = [
-    icon && <Icon icon={icon} sx={children && { mr: 2, ml: -2 }} />,
+    icon && <Icon key="0" icon={icon} sx={children && { mr: 2, ml: -2 }} />,
     children,
   ]
   return href ? (

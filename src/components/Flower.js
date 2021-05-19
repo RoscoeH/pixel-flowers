@@ -72,6 +72,7 @@ Flower.propTypes = {
 export default Flower
 
 const FlowerSvg = ({
+  id,
   backgroundColor,
   onClick,
   style,
@@ -83,6 +84,7 @@ const FlowerSvg = ({
   const [dimensionsRef, { width: svgWidth }] = useDimensions()
   return (
     <svg
+      id={id}
       ref={dimensionsRef}
       sx={{
         verticalAlign: "top",

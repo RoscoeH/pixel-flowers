@@ -33,6 +33,9 @@ Download.args = { icon: "download" }
 export const Brush = Template.bind({})
 Brush.args = { icon: "brush" }
 
+export const Link = Template.bind({})
+Link.args = { icon: "link" }
+
 export const Facebook = Template.bind({})
 Facebook.args = { icon: "facebook" }
 
