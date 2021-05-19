@@ -20,6 +20,7 @@ const commonStyles = icon => ({
   fontFamily: "heading",
   fontSize: 1,
   fontWeight: 600,
+  cursor: "pointer",
   "&:disabled": {
     cursor: "not-allowed",
   },

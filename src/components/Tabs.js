@@ -19,6 +19,7 @@ export function TabButton({ children, selected, onClick }) {
         fontWeight: 600,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3,
+        cursor: "pointer",
         "&:hover": {
           color: selected ? "dark" : "primary",
         },
