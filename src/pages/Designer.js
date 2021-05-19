@@ -105,7 +105,6 @@ export function Designer() {
           <Button onClick={() => history.push(`/flower/${url}`)}>Done</Button>
         </ButtonGroup>
       </Header>
-      <p>{url}</p>
       {isClient && (
         <Content key={key}>
           <div
