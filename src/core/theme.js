@@ -41,6 +41,9 @@ const theme = {
     h1: {
       fontSize: 4,
     },
+    h2: {
+      fontSize: 2,
+    },
     h3: {
       fontSize: 1,
       mt: 4,

@@ -16,6 +16,7 @@ import {
 } from "../hooks/useFlower"
 import useIsClient from "../hooks/useIsClient"
 import Layout from "../components/Layout"
+import Logo from "../components/Logo"
 import { FlowerSvg as Flower } from "../components/Flower"
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
@@ -80,7 +81,15 @@ export function Designer() {
         <title>Designer</title>
       </Helmet>
       <Header>
-        <Themed.h1 sx={{ m: 0 }}>Designer</Themed.h1>
+        <div
+          sx={{ display: "flex", cursor: "pointer" }}
+          onClick={() => history.push("/")}
+        >
+          <Logo size={24} sx={{ mr: 2 }} />
+          <Themed.h2 sx={{ m: 0, flex: 1 }} as={Themed.h1}>
+            Pixel Flowers
+          </Themed.h2>
+        </div>
         <ButtonGroup>
           <Button
             sx={{ display: ["none", "inline-flex"] }}
