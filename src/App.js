@@ -19,6 +19,9 @@ function App() {
           <Route exact path="/designer">
             <Designer />
           </Route>
+          <Route exact path="/flower/:id">
+            <Flower />
+          </Route>
           <Route exact path="/flower">
             <Flower />
           </Route>

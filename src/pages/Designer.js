@@ -1,6 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
+import { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { motion } from "framer-motion"
 import useDimensions from "react-use-dimensions"
 import { Global } from "@emotion/react"
@@ -18,6 +20,7 @@ import { FlowerSvg as Flower } from "../components/Flower"
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
 import ButtonGroup from "../components/ButtonGroup"
+import { flowerToString, urlEncode } from "../core/utils"
 
 function saveImage() {
   toImg("svg", "pixel-flower", {
@@ -76,9 +79,16 @@ function Content({ children }) {
 }
 
 export function Designer() {
+  const history = useHistory()
+  const [url, setUrl] = useState()
   const { isClient, key } = useIsClient()
   const [dimensionsRef, { width }] = useDimensions()
   const { flower, randomFlower } = useFlowerContext()
+
+  useEffect(() => {
+    const flowerString = flowerToString(flower)
+    setUrl(urlEncode(flowerString))
+  }, [flower])
 
   return (
     <div>
@@ -92,9 +102,10 @@ export function Designer() {
           >
             Random
           </Button>
-          <Button onClick={saveImage}>Save</Button>
+          <Button onClick={() => history.push(`/flower/${url}`)}>Done</Button>
         </ButtonGroup>
       </Header>
+      <p>{url}</p>
       {isClient && (
         <Content key={key}>
           <div

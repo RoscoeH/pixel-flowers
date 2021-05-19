@@ -1,12 +1,14 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
+import { useParams } from "react-router-dom"
 
 import { useFlower, pickRandomFlower } from "../hooks/useFlower"
 import Layout from "../components/layout"
 import { FlowerSvg as Flower } from "../components/Flower"
 import ButtonGroup from "../components/ButtonGroup"
 import Button from "../components/Button"
+import { stringToFlower, urlDecode } from "../core/utils"
 
 function Buttons({ children }) {
   return (
@@ -24,7 +26,10 @@ function Buttons({ children }) {
 }
 
 export default function FlowerPage() {
-  const { flower } = useFlower(pickRandomFlower())
+  const { id } = useParams()
+  const initialFlower = id ? stringToFlower(urlDecode(id)) : pickRandomFlower()
+  const { flower } = useFlower(initialFlower)
+
   return (
     <Layout>
       <Flower {...flower} width="100%" height="100%" rounded />

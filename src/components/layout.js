@@ -17,21 +17,11 @@ const Layout = ({ children }) => {
       }}
     >
       <Header />
-      <main
-        sx={{
-          // margin: `0 auto`,
-          // maxWidth: 14,
-          // px: 3,
-          flexGrow: 1,
-        }}
-      >
+      <main sx={{ flexGrow: 1 }}>
         <div sx={{ maxWidth: 14, px: 3, margin: "0 auto" }}>{children}</div>
       </main>
       <footer
         sx={{
-          // position: "absolute",
-          // bottom: 0,
-          width: "100%",
           bg: "muted2",
           fontSize: 0,
           textAlign: "center",
