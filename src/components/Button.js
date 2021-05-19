@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import React from "react"
 import Icon from "./Icon"
 import { lighten, darken } from "@theme-ui/color"
 import { get } from "lodash"
@@ -11,6 +12,7 @@ const commonStyles = icon => ({
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",
+  textDecoration: "none",
   border: "none",
   px: icon ? 3 : 4,
   py: 2,
@@ -71,6 +73,8 @@ export default function Button({
   color,
   children,
   sx,
+  href,
+  onClick,
   ...props
 }) {
   const type = secondary ? TYPES.secondary : TYPES.primary
@@ -81,10 +85,17 @@ export default function Button({
     "&:active": activeStyles(type, color),
     ...sx,
   }
-  return (
-    <button sx={styles} {...props}>
-      {icon && <Icon icon={icon} sx={children && { mr: 2, ml: -2 }} />}
-      {children}
+  const content = [
+    icon && <Icon icon={icon} sx={children && { mr: 2, ml: -2 }} />,
+    children,
+  ]
+  return href ? (
+    <a sx={styles} href={href} {...props}>
+      {content}
+    </a>
+  ) : (
+    <button sx={styles} onClick={onClick} {...props}>
+      {content}
     </button>
   )
 }

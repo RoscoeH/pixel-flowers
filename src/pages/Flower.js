@@ -30,6 +30,9 @@ export default function FlowerPage() {
   const initialFlower = id ? stringToFlower(urlDecode(id)) : pickRandomFlower()
   const { flower } = useFlower(initialFlower)
 
+  const fbLink =
+    "https://www.facebook.com/sharer/sharer.php?u=https%3A//pixelflowers.roscoe.dev/flower/1234"
+
   return (
     <Layout>
       <Flower {...flower} width="100%" height="100%" rounded />
@@ -40,7 +43,7 @@ export default function FlowerPage() {
           <Button icon="download">Save PNG</Button>
         </ButtonGroup>
         <ButtonGroup expand>
-          <Button icon="facebook" color="social.facebook">
+          <Button icon="facebook" color="social.facebook" href={fbLink}>
             Share to Facebook
           </Button>
         </ButtonGroup>

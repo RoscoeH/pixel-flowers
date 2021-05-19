@@ -5,10 +5,10 @@ export default function ButtonGroup({ expand, children }) {
     <div
       sx={{
         display: expand ? "flex" : "block",
-        "& > button": {
+        "& > *": {
           flex: `1 1 ${Math.floor(100 / (children.length || 1))}%`,
         },
-        "& > button:not(:last-child)": {
+        "& > *:not(:last-child)": {
           mr: 2,
         },
       }}
