@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { jsx, Themed } from "theme-ui"
 import { useParams, useHistory } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
 import { motion } from "framer-motion"
 import useDimensions from "react-use-dimensions"
 import { Global } from "@emotion/react"
@@ -14,6 +15,7 @@ import {
   pickRandomFlower,
 } from "../hooks/useFlower"
 import useIsClient from "../hooks/useIsClient"
+import Layout from "../components/Layout"
 import { FlowerSvg as Flower } from "../components/Flower"
 import Button from "../components/Button"
 import FlowerConfig from "../components/FlowerConfig"
@@ -73,7 +75,10 @@ export function Designer() {
   const { flower, randomFlower, url } = useFlowerContext()
 
   return (
-    <div>
+    <Layout hideHeader hideFooter>
+      <Helmet>
+        <title>Designer</title>
+      </Helmet>
       <Header>
         <Themed.h1 sx={{ m: 0 }}>Designer</Themed.h1>
         <ButtonGroup>
@@ -111,7 +116,7 @@ export function Designer() {
           </HideOnMobile>
         </Content>
       )}
-    </div>
+    </Layout>
   )
 }
 

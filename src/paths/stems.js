@@ -43,12 +43,12 @@ const STEMS = {
     </>,
   ],
   f: [
-    <path d="M3 0H4V10H3V0ZM3 10V13H2V10H3Z" />,
+    <path d="M4 0H5V10H4V0ZM4 10V13H3V10H4Z" />,
     <>
-      <rect x="1" y="9" width="1" height="1" />
-      <rect y="8" width="1" height="1" />
-      <rect x="2" y="5" width="1" height="1" />
-      <rect x="1" y="4" width="1" height="1" />
+      <rect x="2" y="9" width="1" height="1" />
+      <rect x="1" y="8" width="1" height="1" />
+      <rect x="3" y="5" width="1" height="1" />
+      <rect x="2" y="4" width="1" height="1" />
     </>,
   ],
   g: [

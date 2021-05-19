@@ -1,11 +1,11 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, Themed } from "theme-ui"
+/** @jsxImportSource theme-ui */
+import { Helmet } from "react-helmet-async"
 import { useHistory, useLocation, useParams } from "react-router-dom"
+import { Themed } from "theme-ui"
 import toImg from "react-svg-to-image"
 
 import { useFlower, pickRandomFlower } from "../hooks/useFlower"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { FlowerSvg as Flower } from "../components/Flower"
 import ButtonGroup from "../components/ButtonGroup"
 import Button from "../components/Button"
@@ -59,6 +59,9 @@ export default function FlowerPage() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Share &amp; Save</title>
+      </Helmet>
       <Flower {...flower} width="100%" height="100%" rounded />
       <Themed.h3 sx={{ mb: 0, textAlign: "center" }}>Save or Share</Themed.h3>
       <Buttons>

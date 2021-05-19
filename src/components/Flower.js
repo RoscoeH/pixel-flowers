@@ -37,7 +37,7 @@ const Flower = ({
         kind={stem}
         color={stemColor}
         color2={stemColor2}
-        transform="translate(9,9)"
+        transform="translate(8,9)"
       />
     )}
     {petals && petalsEnabled && (

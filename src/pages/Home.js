@@ -3,7 +3,7 @@
 import { jsx, Themed, Link } from "theme-ui"
 import { useHistory, Link as RouterLink } from "react-router-dom"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import EvolvingFlower from "../components/EvolvingFlower"
 import Explainer from "../components/Explainer"
 import RandomFlowers from "../components/RandomFlowers"
