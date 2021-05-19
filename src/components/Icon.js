@@ -4,11 +4,15 @@ import { Icon as IconifyIcon, InlineIcon } from "@iconify/react"
 import chevronLeft from "@iconify/icons-mdi/chevron-left"
 import chevronRight from "@iconify/icons-mdi/chevron-right"
 import chevronUp from "@iconify/icons-mdi/chevron-up"
+import download from "@iconify/icons-mdi/download"
+import facebook from "@iconify/icons-mdi/facebook"
 
 const ICONS = {
   chevronLeft,
   chevronRight,
   chevronUp,
+  download,
+  facebook,
 }
 const DEFAULT_ICON = "chevronLeft"
 

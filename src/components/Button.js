@@ -77,8 +77,8 @@ export default function Button({
       }}
       {...props}
     >
+      {icon && <Icon icon={icon} sx={children && { mr: 2, ml: -2 }} />}
       {children}
-      {icon && <Icon icon={icon} sx={children && { ml: 0, mr: -2 }} />}
     </button>
   )
 }
