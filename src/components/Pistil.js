@@ -1,14 +1,14 @@
+/** @jsxImportSource theme-ui */
 import React from "react"
 import PropTypes from "prop-types"
 
 import PISTILS, { KINDS } from "../paths/pistils"
 
-const DEFAULT_COLOR = "#ffeb00"
 const SIZE = 128
 const RES = 8
 
-const Pistil = ({ color = DEFAULT_COLOR, kind = "tiny", ...props }) => (
-  <g fill={color} {...props}>
+const Pistil = ({ color = "secondary", kind = "tiny", ...props }) => (
+  <g sx={{ fill: color }} {...props}>
     {React.createElement(PISTILS[kind] || PISTILS[KINDS[0]])}
   </g>
 )
