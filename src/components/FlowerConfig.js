@@ -14,8 +14,8 @@ const DEFAULT_TAB = PART_NAMES[0]
 
 const HIDE_SCROLLBAR_STYLES = {
   "::-webkit-scrollbar": { display: "none" }, // Chrome, Edge, Safari, Opera
-  "-ms-overflow-style": "none", // IE
-  "scrollbar-width": "none", // Firefox
+  msOverFlowStyle: "none", // IE
+  scrollbarWidth: "none", // Firefox
 }
 
 function Tabbed() {

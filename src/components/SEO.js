@@ -1,14 +1,11 @@
 import React from "react"
 import { Helmet } from "react-helmet-async"
-import { useLocation } from "react-router-dom"
 
 import config from "../core/config"
 
 function SEO() {
   const { title, description } = config
-  const { href } = useLocation()
-  const location = useLocation()
-  console.log(href, location)
+  const { href, origin } = window.location
   return (
     <Helmet titleTemplate={`%s | ${title}`} defaultTitle={title}>
       <html lang="en" />
@@ -19,10 +16,7 @@ function SEO() {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta
-        property="og:image"
-        content={`${window.location.origin}/logo512.png`}
-      />
+      <meta property="og:image" content={`${origin}/logo512.png`} />
     </Helmet>
   )
 }
