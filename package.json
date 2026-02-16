@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@theme-ui/color": "^0.8.4",
     "framer-motion": "^4.1.16",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-div-100vh": "^0.6.0",
